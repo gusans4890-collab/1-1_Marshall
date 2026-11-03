@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="cinema.css" />
         <link rel="stylesheet" href="home-finale.css" />
         <link rel="stylesheet" href="selection-polish.css?v=20261103-products-complete" />
-        <title>An Edit of Sound — Marshall</title>
+        <title>Marshall — 60 years of loud | Marshall.com</title>
         <meta name="description" content="헤드폰, 이어버드, 홈 스피커와 포터블 스피커를 살펴보는 마샬 컬렉션." />
         <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
         <meta name="theme-color" content="#1b1d1b" />
@@ -84,7 +84,22 @@
                         alt="런던의 음악 공간 The Old Blue Last"
                         fetchpriority="high"
                     />
-                    <div class="cinema-film" aria-hidden="true"><div id="cinema-player"></div></div>
+                    <div class="cinema-film" aria-hidden="true">
+                        <video
+                            id="cinema-video"
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            poster="assets/blue-last.jpg"
+                        >
+                            <!-- 영상 준비되면 주석을 풀고 경로를 맞추세요 -->
+                            <source
+                                src="assets/Introducing Emberton III Portable Speaker ｜ Marshall (Captioned).mp4"
+                                type="video/mp4"
+                            />
+                        </video>
+                    </div>
                     <div class="cinema-shade" aria-hidden="true"></div>
                     <span class="cinema-status" aria-live="polite">MARSHALL / A FILM IN SOUND</span>
                     <div class="cinema-copy">
