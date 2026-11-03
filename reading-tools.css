@@ -620,3 +620,14 @@ main p + a.text-link:not(.selection-collection-link) { margin-top: 32px; }
     flex-basis: 17px;
     margin: 0;
 }
+
+/* Multi-line page titles need room for the serif's tall italic ascenders. */
+.collection-intro h1,
+.article-hero h1 { line-height: 1; }
+:is(.collection-intro h1, .article-hero h1) .word-clip {
+    vertical-align: baseline;
+    line-height: inherit;
+    padding-bottom: 0.16em;
+    margin-bottom: -0.16em;
+}
+:is(.collection-intro h1, .article-hero h1) em { line-height: inherit; }
