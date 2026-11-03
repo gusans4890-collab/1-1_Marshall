@@ -1,5 +1,12 @@
 (() => {
     "use strict";
+    try {
+        if (sessionStorage.getItem("marshall-logo-home") === location.pathname &&
+            !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            document.documentElement.classList.add("logo-home-pending");
+        }
+        if (sessionStorage.getItem("marshall-site-entered") === "1") return;
+    } catch {}
     const root = document.documentElement;
     const body = document.body;
     root.classList.add("entry-locked");

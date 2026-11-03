@@ -1,0 +1,622 @@
+/* Additive reading and discovery tools, following the existing editorial palette. */
+html[lang="ko"] body :is(p, dd, .text-link, .product-nav a, .footer-links a, summary, .sound-choice-link) {
+    font-size: max(15px, 1em);
+    line-height: 1.85;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+html[lang="ko"] body :is(.selection-slide p, .opening-caption p, .selection-aside p, .product-tech-note, .footer-newsletter-action p) { font-size: 16px; }
+html[lang="ko"] body :is(.detail-copy p, .article-body p, .product-intro p, .depth-feature p, .sound-finder-intro p) { font-size: clamp(16px, 1.15vw, 19px); }
+/* Dedicated side rails keep navigation clear of every product and caption. */
+.editorial-home .selection-stage {
+    position: relative;
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr) 56px;
+    column-gap: clamp(16px, 2vw, 32px);
+}
+.selection-stage > .editorial-heading { grid-column: 2; grid-row: 1; }
+.selection-stage > .selection-scroll { grid-column: 2; grid-row: 2; min-width: 0; }
+.selection-stage > .selection-folio { grid-column: 2; grid-row: 3; }
+.editorial-home .selection-controls,
+.selection-controls .slider-arrows { display: contents; }
+.selection-controls > :is(.drag-note, .selection-progress) { display: none; }
+.selection-controls .slider-arrows button {
+    position: relative;
+    inset: auto;
+    align-self: center;
+    justify-self: center;
+    grid-row: 2;
+    width: 56px;
+    height: 56px;
+    padding: 12px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #73634b;
+    cursor: pointer;
+    transition: border-color 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+.selection-controls .selection-prev { grid-column: 1; }
+.selection-controls .selection-next { grid-column: 3; }
+.selection-controls button svg { display: block; width: 100%; height: 100%; transition: transform 220ms ease; }
+.selection-controls .slider-arrows button:hover { background: transparent; color: #373c31; }
+.selection-controls .selection-prev:hover svg { transform: translateX(-2px); }
+.selection-controls .selection-next:hover svg { transform: translateX(2px); }
+.selection-controls button:focus-visible { outline: 2px solid #73634b; outline-offset: 5px; }
+@media (prefers-reduced-motion: reduce) {
+    .selection-controls .slider-arrows button, .selection-controls button svg { transition: none; }
+}
+.recent-products { padding: 65px max(6vw, 24px); background: #e8e3d7; color: #373c31; }
+.recent-products h2 { font: 32px/1.3 var(--serif, serif); margin: 10px 0; }
+.recent-products > p { margin-bottom: 24px; }
+.recent-products-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.recent-product { border-top: 1px solid #aaa18f; padding-top: 16px; }
+.recent-product img { width: 100%; height: 170px; object-fit: contain; margin-bottom: 12px; }
+.recent-product strong, .recent-product span { display: block; }
+.recent-product span { font: 14px/1.8 var(--sans, sans-serif); margin-top: 7px; }
+@media(max-width:700px) {
+    .editorial-home .selection-stage { grid-template-columns: 36px minmax(0, 1fr) 36px; column-gap: 8px; }
+    .selection-stage > .editorial-heading { grid-column: 1 / -1; }
+    .selection-controls .slider-arrows button { width: 36px; height: 44px; padding: 8px; border: 0; border-radius: 0; }
+    .selection-controls .slider-arrows button:hover { background: transparent; color: #373c31; }
+    .recent-products-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Lift the highlight captions away from the lower edge of the photograph. */
+.editorial-home .opening-scroll .opening-caption { translate: 0 -17px; }
+@media (max-width: 700px) {
+    .editorial-home .opening-scroll .opening-caption { translate: 0 -2px; }
+}
+
+/* A left-aligned title and description, with a quiet collection action. */
+.editorial-home .selection-stage > .editorial-heading {
+    display: block;
+    padding-top: 24px;
+    margin-bottom: 36px;
+}
+.selection-stage .editorial-heading h2 {
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 1.02;
+    margin: 22px 0 0;
+}
+.selection-stage .editorial-heading h2 em { translate: 0 8px; }
+.selection-stage .editorial-heading h2 em::after { display: none; }
+.editorial-home .selection-stage .selection-aside {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin-top: 24px;
+}
+html[lang="ko"] .editorial-home .selection-stage .selection-aside p {
+    translate: none;
+    margin: 0;
+    max-width: 36em;
+    font-size: 18px;
+    line-height: 1.85;
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    color: #747369;
+}
+.selection-aside p br { display: none; }
+html[lang="ko"] .selection-aside .selection-collection-link {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 16px;
+    min-height: 36px;
+    padding: 4px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    border: 0;
+    color: #514d42;
+    white-space: nowrap;
+}
+.selection-aside .selection-collection-link::after { display: none; }
+.selection-collection-link svg { width: 18px; height: 18px; flex: 0 0 18px; }
+.selection-collection-link:focus-visible { outline: 1px solid #73634b; outline-offset: 5px; }
+@media (max-width: 700px) {
+    .editorial-home .selection-stage > .editorial-heading { padding-top: 18px; margin-bottom: 28px; }
+    .selection-stage .editorial-heading h2 { font-size: clamp(44px, 11vw, 60px); margin-top: 18px; }
+    .editorial-home .selection-stage .selection-aside { flex-direction: column; align-items: start; gap: 12px; margin-top: 20px; }
+}
+
+/* English headings and Korean descriptions share one spacing scale.
+   Reset the title's bottom margin so legacy margins cannot double the gap. */
+:root {
+    --copy-gap-hero: 32px;
+    --copy-gap-section: 24px;
+    --copy-gap-card: 12px;
+}
+main .bilingual-title { margin-bottom: 0 !important; }
+main .bilingual-description {
+    margin-top: var(--copy-gap-section) !important;
+    line-height: 1.85;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+main h1.bilingual-title + .bilingual-description { margin-top: var(--copy-gap-hero) !important; }
+main :is(.catalog-card, .selection-slide, .opening-caption, .journal-card, .related-card, .craft-card, .support-card) .bilingual-description {
+    margin-top: var(--copy-gap-card) !important;
+}
+/* The selection word is visually lowered by 8px; compensate in the next row. */
+.editorial-home .selection-stage .selection-aside { margin-top: calc(var(--copy-gap-section) + 8px); }
+.story-reading-intro > .article-lead { margin-top: var(--copy-gap-section); }
+.story-reading-copy h2 { margin-bottom: 0; }
+.story-reading-copy h2 + p { margin-top: var(--copy-gap-section); }
+@media (max-width: 700px) {
+    :root {
+        --copy-gap-hero: 24px;
+        --copy-gap-section: 20px;
+        --copy-gap-card: 12px;
+    }
+}
+
+/* Cards keep their own natural height; descriptions share the remaining space. */
+.craft-grid { align-items: stretch; }
+.craft-grid .craft-card { display: flex; flex-direction: column; min-width: 0; height: 100%; }
+.craft-grid .craft-card > div { flex: 0 0 auto; width: 100%; aspect-ratio: 1.25; }
+.craft-grid .craft-card small { margin: 22px 0 16px; line-height: 1.5; }
+.craft-grid .craft-card h3 { font-size: 24px; line-height: 1.45; margin: 0; word-break: keep-all; }
+html[lang="ko"] .craft-grid .craft-card p {
+    flex: 1 0 auto;
+    font-size: 16px;
+    line-height: 1.85;
+    margin: 16px 0 24px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+.craft-grid .craft-card > span:last-child { align-self: start; margin-top: auto; line-height: 1.6; }
+/* Let the craft photographs follow the title without a separate introduction. */
+.editorial-home .craft-notes > .editorial-heading {
+    display: block;
+    padding-bottom: 0;
+    border: 0;
+    margin-bottom: 40px;
+}
+@media (max-width: 700px) {
+    .editorial-home .craft-notes > .editorial-heading { margin-bottom: 28px; }
+}
+
+.editorial-home .craft-notes > .editorial-heading h2 {
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 1.12;
+    margin-bottom: 0;
+}
+@media (max-width: 700px) {
+    .editorial-home .craft-notes > .editorial-heading h2 { font-size: clamp(44px, 11vw, 60px); }
+    .craft-grid .craft-card { height: auto; }
+}
+
+/* Keep the craft title on one clean line, including narrow screens. */
+.editorial-home .craft-notes > .editorial-heading h2 { white-space: nowrap; }
+@media (max-width: 700px) {
+    .editorial-home .craft-notes > .editorial-heading h2 { font-size: clamp(30px, 8.3vw, 58px); }
+}
+
+/* Product links stay in the page flow, below the opening composition. */
+.product-pager {
+    position: relative;
+    inset: auto;
+    transform: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    padding: 22px max(6%, calc((100% - 1380px) / 2));
+    background: #191b18;
+    border-top: 1px solid #d2c3aa25;
+    color: #e8e4dc;
+    font-family: var(--sans);
+}
+.product-pager a { display: flex; min-width: 0; min-height: 44px; align-items: center; transition: color 220ms ease; }
+.product-pager .product-pager-next { justify-content: end; text-align: right; }
+.product-pager a > span { display: block; }
+.product-pager small { display: block; font-size: 12px; line-height: 1.6; color: #a99b85; }
+.product-pager strong { display: block; margin-top: 5px; font-size: 14px; line-height: 1.5; font-weight: 400; word-break: normal; }
+.product-pager-count { display: block; font-size: 11px; color: #928e84; letter-spacing: 0.08em; white-space: nowrap; }
+.product-pager a:is(:hover, :focus-visible) { color: #d3bd99; }
+.product-pager a:focus-visible { outline: 1px solid #c9b898; outline-offset: 4px; }
+.hero-photo-frame { position: relative; width: 100%; margin: 0; overflow: hidden; cursor: grab; touch-action: pan-y pinch-zoom; }
+.hero-photo-frame.is-dragging { cursor: grabbing; }
+.product-visual .hero-photo-frame > img { display: block; width: 100%; height: clamp(320px, 56svh, 620px); object-fit: contain; object-position: center; background: #2c2d2b; user-select: none; -webkit-user-drag: none; }
+.hero-photo-dots { position: absolute; inset: auto 16px 14px; display: flex; justify-content: center; gap: 2px; }
+.hero-photo-dots button { display: grid; place-items: center; width: 28px; height: 32px; border: 0; padding: 0; background: transparent; cursor: pointer; }
+.hero-photo-dots button > span { width: 5px; height: 5px; border-radius: 50%; background: #9d978a; opacity: 0.65; transition: background-color 200ms ease, opacity 200ms ease; }
+.hero-photo-dots button[aria-pressed="true"] > span { background: #e5d4b9; opacity: 1; }
+.hero-photo-dots button:hover > span { opacity: 1; background: #e5d4b9; }
+.hero-photo-dots button:focus-visible { outline: 1px solid #c9b898; outline-offset: -3px; }
+.hero-photo-frame:focus-visible { outline: 1px solid #c9b898; outline-offset: -3px; }
+.hero-photo-count { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 700px) {
+    .product-pager { gap: 16px; padding-block: 18px; }
+    .product-pager strong { font-size: 12px; }
+    .product-pager-count { font-size: 10px; }
+    .product-visual .hero-photo-frame > img { height: clamp(260px, 75vw, 380px); }
+    .hero-photo-dots { bottom: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .product-pager a, .hero-photo-dots button > span { transition: none; }
+}
+
+/* All discovery actions use the same hover rule, regardless of markup. */
+body { --action-hover-color: #d3bd99; }
+:is(.selection, .craft-notes, .sound-finder, .related-products, .more-models, .material-story, .story-reading, .new-product-details, .recent-products) {
+    --action-hover-color: #8a653b;
+}
+:is(a.text-link, .browse-label, .sound-choice-link, .craft-card > span:last-child, .selection-view, a.depth-source) {
+    transition: color 220ms ease, border-color 220ms ease;
+}
+html[lang="ko"] body main a.text-link:is(:hover, :focus-visible),
+html[lang="ko"] body main a.depth-source:is(:hover, :focus-visible),
+html[lang="ko"] body main a.browse-label:is(:hover, :focus-visible),
+html[lang="ko"] body main a:is(:hover, :focus-visible) .browse-label,
+html[lang="ko"] body main .sound-choice:is(:hover, :focus-visible) .sound-choice-link,
+html[lang="ko"] body main .craft-card:is(:hover, :focus-visible) > span:last-child {
+    color: var(--action-hover-color);
+    border-color: currentColor;
+}
+/* Image overlays stay light even when the surrounding section is pale. */
+html[lang="ko"] body main .selection-slide a:is(:hover, :focus-visible) .selection-view {
+    color: #e5cfaa;
+    border-color: currentColor;
+}
+@media (prefers-reduced-motion: reduce) {
+    :is(a.text-link, .browse-label, .sound-choice-link, .craft-card > span:last-child, .selection-view, a.depth-source) { transition: none; }
+}
+
+/* Inline icons scale with their label rather than using fixed pixel sizes. */
+.link-arrow, .external-link-icon {
+    display: inline-block;
+    flex: 0 0 auto;
+    vertical-align: -0.18em;
+    overflow: visible;
+    pointer-events: none;
+    font-size: inherit;
+}
+.link-arrow { width: 1.6em; height: 1.2em; }
+.external-link-icon { width: 1.15em; height: 1.15em; }
+/* Old icon wrappers used separate font sizes; inherit the actual label size. */
+:is(h2, h3, .text-link, .menu-main a, .footer-newsletter-link, .footer-locale, .footer-policy-links a, .footer-links a) :is(span, b):has(> :is(.link-arrow, .external-link-icon)) {
+    font-size: inherit;
+    line-height: 1;
+    vertical-align: middle;
+}
+:is(.text-link, .sound-choice-link, .craft-card > span, .selection-view) :is(.link-arrow, .external-link-icon) { margin-left: 0.4em; }
+.selection-collection-link .link-arrow { width: 1.6em; height: 1.2em; flex-basis: auto; margin: 0; }
+.selection-stage .selection-slide h3::after { width: 1.6em; height: 1.2em; flex-basis: 1.6em; }
+
+/* Home icons have an optical size cap, independent of large display headings. */
+.editorial-home .link-arrow { width: 24px; height: 18px; flex-basis: 24px; vertical-align: -0.12em; }
+.editorial-home .external-link-icon { width: 14px; height: 14px; flex-basis: 14px; vertical-align: -0.1em; }
+.editorial-home .text-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+.editorial-home .text-link > span:has(> svg),
+.editorial-home .category-edit nav b:has(> svg),
+.editorial-home .journal-card h3 > span:has(> svg) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    line-height: 1;
+}
+.editorial-home .text-link :is(.link-arrow, .external-link-icon) { margin-left: 0; }
+.editorial-home .journal-card h3 { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.editorial-home .selection-stage .selection-slide h3::after { width: 24px; height: 18px; flex: 0 0 24px; }
+.editorial-home .selection-stage .selection-slide a:hover h3::after { translate: 3px 0; }
+.editorial-home :is(.sound-choice-link, .craft-card > span:last-child, .selection-view) { display: inline-flex; align-items: center; gap: 8px; }
+.editorial-home :is(.sound-choice-link, .craft-card > span:last-child, .selection-view) .link-arrow { margin: 0; width: 22px; height: 16.5px; flex-basis: 22px; }
+.editorial-home .selection-controls button svg { width: 24px; height: 24px; margin: auto; }
+.editorial-home .selection-controls .slider-arrows button { display: grid; place-items: center; }
+.editorial-home .menu-main .link-arrow { width: 28px; height: 21px; flex-basis: 28px; }
+.editorial-home .brand-footer .external-link-icon { width: 13px; height: 13px; flex-basis: 13px; }
+
+/* Apply hover to the icons themselves, including nested and generated icons. */
+.link-arrow, .external-link-icon,
+:is(.product-pager a, .hero-photo-arrow, .selection-controls button) svg {
+    transition: color 220ms ease, translate 220ms ease;
+}
+a:is(:hover, :focus-visible) .link-arrow {
+    color: var(--action-hover-color, #d3bd99);
+    translate: 3px 0;
+}
+a:is(:hover, :focus-visible) .external-link-icon {
+    color: var(--action-hover-color, #d3bd99);
+    translate: 2px -2px;
+}
+/* Avoid combining the old wrapper animation with the icon animation. */
+a:is(:hover, :focus-visible) :is(span, b):has(> :is(.link-arrow, .external-link-icon)) { transform: none; }
+.selection-stage .selection-slide a:is(:hover, :focus-visible) h3::after { color: var(--action-hover-color); translate: 3px 0; }
+.product-pager a:is(:hover, :focus-visible) svg,
+.hero-photo-arrow:is(:hover, :focus-visible) svg { color: #d3bd99; }
+:is(.product-pager-prev, .hero-photo-prev, .selection-prev):is(:hover, :focus-visible) svg { transform: none; translate: -3px 0; }
+:is(.product-pager-next, .hero-photo-next, .selection-next):is(:hover, :focus-visible) svg { transform: none; translate: 3px 0; }
+.selection-controls button:is(:hover, :focus-visible) svg { color: #8a653b; }
+.selection-slide a { --action-hover-color: #8a653b; }
+.selection-view { --action-hover-color: #e5cfaa; }
+@media (prefers-reduced-motion: reduce) {
+    .link-arrow, .external-link-icon, :is(.product-pager a, .hero-photo-arrow, .selection-controls button) svg { transition: none; }
+    a:is(:hover, :focus-visible) :is(.link-arrow, .external-link-icon),
+    :is(.product-pager a, .hero-photo-arrow, .selection-controls button):is(:hover, :focus-visible) svg,
+    .selection-stage .selection-slide a:is(:hover, :focus-visible) h3::after { translate: none; }
+}
+
+/* A compact plus marks product details without competing with the product name. */
+.product-detail-plus { display: block; width: 20px; height: 20px; flex: 0 0 20px; color: #b7a17d; transition: rotate 240ms ease, color 240ms ease; }
+:is(.catalog-card h2, .related-card h3) { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+:is(.catalog-card h2, .related-card h3) > span:has(> .product-detail-plus) { display: inline-flex; flex: 0 0 auto; line-height: 1; }
+:is(.catalog-card, .related-card):is(:hover, :focus-visible) .product-detail-plus { rotate: 90deg; color: var(--action-hover-color); }
+.editorial-home .selection-stage .selection-slide h3::after,
+.selection-stage .selection-slide h3::after {
+    width: 20px; height: 20px; flex: 0 0 20px;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.1' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center / contain no-repeat;
+    transition: rotate 240ms ease, color 240ms ease;
+}
+.editorial-home .selection-stage .selection-slide a:is(:hover, :focus-visible) h3::after,
+.selection-stage .selection-slide a:is(:hover, :focus-visible) h3::after { translate: none; rotate: 90deg; }
+@media (prefers-reduced-motion: reduce) {
+    .product-detail-plus, .selection-stage .selection-slide h3::after { transition: none; }
+    :is(.catalog-card, .related-card):is(:hover, :focus-visible) .product-detail-plus,
+    .selection-stage .selection-slide a:is(:hover, :focus-visible) h3::after { rotate: none; }
+}
+
+.depth-specs[id="specifications"] { scroll-margin-top: 150px; }
+
+/* A quiet, compact photo navigator without explanatory copy or boxed buttons. */
+.hero-photo-frame { padding-bottom: 62px; }
+.hero-photo-buttons {
+    position: absolute;
+    left: 50%;
+    bottom: 9px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    white-space: nowrap;
+}
+.hero-photo-buttons button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 6px;
+    border: 0;
+    background: transparent;
+    color: #bdb5a7;
+    font: 12px/1.5 var(--sans);
+    cursor: pointer;
+    transition: color 200ms ease;
+}
+.hero-photo-buttons button:hover { color: #eee4d2; }
+.hero-photo-buttons button:focus-visible { outline: 1px solid #c9b898; outline-offset: 2px; }
+.hero-photo-buttons .hero-photo-count {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+    color: #8f887c;
+    font: 10px/1.5 var(--sans);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.12em;
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-photo-buttons button { transition: none; }
+}
+
+/* Photo arrows stay small below the image; product arrows sit at the page edges. */
+.hero-photo-buttons button { justify-content: center; width: 36px; padding: 0; }
+.hero-photo-buttons button svg { width: 20px; height: 20px; }
+.product-pager {
+    position: fixed;
+    inset: 50% 18px auto;
+    z-index: 45;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    gap: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    pointer-events: none;
+}
+.product-pager a { width: 44px; height: 64px; justify-content: center; color: #c9b898; pointer-events: auto; }
+.product-pager .product-pager-next { justify-content: center; }
+.product-pager a > span, .product-pager .product-pager-count { display: none; }
+.product-pager a svg { width: 28px; height: 28px; flex: 0 0 28px; }
+@media (max-width: 700px) {
+    .product-pager { left: 0; right: 0; }
+    .product-pager a { width: 26px; height: 48px; background: #191b1899; }
+    .product-pager a svg { width: 20px; height: 20px; flex-basis: 20px; }
+}
+
+/* A quiet editorial invitation with a fine vertical directional mark. */
+html[lang="ko"] body main .product-intro a.detail-discover {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    width: fit-content;
+    min-width: 0;
+    min-height: 64px;
+    padding: 8px 0;
+    border: 0;
+    color: #d0c7b6;
+    text-decoration: none;
+}
+.detail-discover::after { display: none; }
+.detail-discover-copy { display: flex; flex-direction: column; gap: 7px; }
+.detail-discover-eyebrow { font: 8px/1.5 var(--sans); letter-spacing: 0.17em; color: #827c71; }
+.detail-discover-label { font: 11px/1.5 var(--sans); letter-spacing: 0.09em; }
+.detail-discover .detail-discover-icon {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 48px;
+    flex: 0 0 28px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #b7a17d;
+    overflow: hidden;
+}
+.detail-discover-icon svg { width: 22px; height: 32px; transition: translate 350ms cubic-bezier(.2,.7,.3,1), color 250ms ease; }
+html[lang="ko"] body main .detail-discover:is(:hover, :focus-visible) > span { transform: none; }
+.detail-discover-copy span { transition: color 250ms ease; }
+.detail-discover:is(:hover, :focus-visible) .detail-discover-label { color: #e5d4b9; }
+.detail-discover:is(:hover, :focus-visible) .detail-discover-eyebrow { color: #b7a17d; }
+.detail-discover:is(:hover, :focus-visible) svg { translate: 0 4px; color: #e5d4b9; }
+.detail-discover:focus-visible { outline: 1px solid #b7a17d; outline-offset: 6px; }
+@media (prefers-reduced-motion: reduce) {
+    .detail-discover-copy span, .detail-discover-icon svg { transition: none; }
+    .detail-discover:is(:hover, :focus-visible) svg { translate: none; }
+}
+
+/* Recently viewed items share an image frame and a single product-name line. */
+.recent-products-list { align-items: start; }
+.recent-products-list .recent-product { display: grid; grid-template-rows: auto 1fr; gap: 16px; min-width: 0; }
+.recent-products-list .recent-product img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; object-position: center; background: #dcd7cd; margin: 0; }
+.recent-products-list .recent-product strong { margin: 0; font: 400 clamp(20px, 2vw, 28px)/1.3 var(--serif, serif); overflow-wrap: break-word; }
+
+.recent-products-list .recent-product { padding-inline: 0; text-align: center; justify-items: center; }
+.recent-products-list .recent-product img { object-position: center; }
+.recent-products-list .recent-product strong { width: 100%; padding: 0; margin-left: 0; text-align: center; }
+
+/* Product navigation remains visible as two quiet labels at the bottom. */
+.product-pager {
+    inset: auto 24px max(20px, env(safe-area-inset-bottom)) auto;
+    transform: none;
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 4px 8px;
+    border: 1px solid #b7a17d35;
+    border-radius: 2px;
+    background: #191b18e8;
+    backdrop-filter: blur(12px);
+    pointer-events: auto;
+}
+.product-pager a,
+.product-pager .product-pager-next {
+    width: auto;
+    height: auto;
+    min-height: 40px;
+    justify-content: center;
+    padding: 0 16px;
+    background: transparent;
+    font: 12px/1.5 var(--sans);
+    color: #d0c7b6;
+    white-space: nowrap;
+}
+.product-pager a + a { border-left: 1px solid #b7a17d35; }
+.product-pager a:is(:hover, :focus-visible) { color: #f0dfc3; }
+.product-page { padding-bottom: 88px; }
+@media (max-width: 700px) {
+    .product-pager { left: auto; right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); }
+    .product-pager a { padding-inline: 14px; }
+}
+.product-page .back-top { bottom: 92px; }
+
+/* Korean product navigation: restrained typography, no enclosing panel. */
+.product-pager {
+    gap: 28px;
+    padding: 4px 18px;
+    border: 0;
+    border-radius: 0;
+    background: linear-gradient(90deg, #191b1800, #191b18df 16%, #191b18df 84%, #191b1800);
+    backdrop-filter: none;
+}
+.product-pager a,
+.product-pager .product-pager-next {
+    position: relative;
+    min-height: 44px;
+    padding: 0 2px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+    color: #c5bdaf;
+}
+.product-pager a + a { border: 0; }
+.product-pager a::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    bottom: 7px;
+    height: 1px;
+    background: #b7a17d;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 220ms ease;
+}
+.product-pager a:is(:hover, :focus-visible)::after { transform: scaleX(1); }
+@media (max-width: 700px) {
+    .product-pager { gap: 24px; padding-inline: 12px; }
+    .product-pager a { padding-inline: 2px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .product-pager a::after { transition: none; }
+}
+
+/* Compact model navigation, with a subtle distinction between back and forward. */
+.product-pager { gap: 32px; padding: 6px 20px; }
+.product-pager a { color: #aaa397; }
+.product-pager .product-pager-next { color: #d2c3aa; }
+.product-pager a::after { bottom: 8px; background: #c1aa85; }
+.product-pager a:is(:hover, :focus-visible) { color: #f0e4cf; }
+@media (max-width: 700px) {
+    .product-pager { gap: 26px; padding: 4px 14px; }
+}
+
+/* Keep the detail label stationary; animate only its SVG direction mark. */
+html[lang="ko"] body main .detail-discover :is(.detail-discover-copy, .detail-discover-label),
+html[lang="ko"] body main .detail-discover:is(:hover, :focus-visible) :is(.detail-discover-copy, .detail-discover-label) {
+    transform: none;
+    translate: none;
+    rotate: none;
+}
+
+/* Give this large editorial heading section spacing rather than card spacing. */
+main .story-stage-title + .story-stage-description { margin-top: 24px !important; }
+main .story-home-link { display: inline-flex; align-items: center; gap: 16px; margin-top: 32px; }
+@media (max-width: 700px) {
+    main .story-stage-title + .story-stage-description { margin-top: 20px !important; }
+    main .story-home-link { margin-top: 28px; }
+}
+
+/* Consistent breathing room from descriptive copy to its separate action. */
+main p:has(+ a.text-link:not(.selection-collection-link)) { margin-bottom: 0; }
+main p + a.text-link:not(.selection-collection-link) { margin-top: 32px; }
+.story-reading-copy h3 + p { margin-top: 20px; }
+@media (max-width: 700px) {
+    main p + a.text-link:not(.selection-collection-link) { margin-top: 28px; }
+    .story-reading-copy h3 + p { margin-top: 16px; }
+}
+
+/* Compact product-image action. */
+.editorial-home .selection-stage .selection-view {
+    padding: 7px 10px;
+    gap: 6px;
+    font-size: 9px;
+    line-height: 1.4;
+    letter-spacing: 0.06em;
+}
+.editorial-home .selection-stage .selection-view .link-arrow {
+    width: 17px;
+    height: 13px;
+    flex-basis: 17px;
+    margin: 0;
+}

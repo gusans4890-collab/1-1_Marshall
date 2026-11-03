@@ -121,7 +121,7 @@
                 }
 
                 $$(".editorial-heading").forEach((heading) => {
-                    if (heading.closest(".selection-stage")) return;
+                    if (heading.closest(".selection-stage, .craft-notes")) return;
                     drift(
                         heading,
                         { y: desktop ? 42 : 18 },
@@ -452,6 +452,9 @@
         } else if (target.closest(".opening-slide a, .selection-slide a")) {
             mode = "action";
             text = "VIEW";
+        } else if (target.closest(".hero-photo-frame") && !target.closest("button")) {
+            mode = "drag";
+            text = "DRAG";
         } else if (target.closest(".swiper")) {
             mode = "drag";
             text = "DRAG";
@@ -632,6 +635,30 @@
         const destination = scene.start + (scene.end - scene.start) * progress * 0.85;
         if (scroll) scroll.scrollTo(destination, { duration: 0.55 });
         else window.scrollTo({ top: destination, behavior: "smooth" });
+    });
+
+    document.querySelectorAll(".selection-prev, .selection-next").forEach((button) => {
+        button.addEventListener("click", () => {
+            const viewport = $(".selection-scroll");
+            const track = $(".selection-track");
+            const cards = $$(".selection-slide", track);
+            const direction = button.matches(".selection-next") ? 1 : -1;
+            const scene = ScrollTrigger.getById("product-scroll");
+            const currentX = scene ? -Number(gsap.getProperty(track, "x")) : viewport.scrollLeft;
+            const distance = Math.max(0, track.scrollWidth - viewport.clientWidth);
+            const step = cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : viewport.clientWidth;
+            const targetX = Math.max(0, Math.min(distance, currentX + direction * step));
+            if (scene && distance) {
+                const top = scene.start + (scene.end - scene.start) * (targetX / distance) * 0.85;
+                if (scroll) scroll.scrollTo(top, { duration: 0.65 });
+                else window.scrollTo({ top, behavior: "smooth" });
+            } else if (motionOff()) {
+                const current = Number(viewport.dataset.arrowIndex || 0);
+                const index = Math.max(0, Math.min(cards.length - 1, current + direction));
+                viewport.dataset.arrowIndex = index;
+                cards[index]?.scrollIntoView({ block: "center", behavior: "instant" });
+            } else viewport.scrollTo({ left: targetX, behavior: "smooth" });
+        });
     });
 
     const mobileSelection = $(".selection-scroll");

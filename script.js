@@ -501,9 +501,9 @@
                 { once: true },
             );
     });
-    let navigating = false;
     let arrivalTimer;
     let pageScene;
+    let logoNavigating = false;
     const pageCurtain = gs ? document.createElement("div") : null;
     if (pageCurtain) {
         pageCurtain.className = "page-curtain";
@@ -513,14 +513,28 @@
         document.body.classList.add("has-gsap-transition");
         gs.set(pageCurtain, { yPercent: 100, autoAlpha: 0 });
     }
-    addEventListener("pageshow", () => {
-        navigating = false;
+    addEventListener("pageshow", (event) => {
+        logoNavigating = false;
         pageScene?.kill();
         clearTimeout(arrivalTimer);
-        document.body.classList.remove("page-leaving");
-        if (!off()) {
+        document.body.classList.remove("page-leaving", "page-arriving");
+        if (pageCurtain) gs.set(pageCurtain, { yPercent: 100, autoAlpha: 0 });
+        let logoArrival = false;
+        let firstVisit = !event.persisted;
+        try {
+            firstVisit = firstVisit && sessionStorage.getItem("marshall-site-entered") !== "1";
+            sessionStorage.setItem("marshall-site-entered", "1");
+            logoArrival = !event.persisted && sessionStorage.getItem("marshall-logo-home") === location.pathname;
+            sessionStorage.removeItem("marshall-logo-home");
+            sessionStorage.removeItem("marshall-title-transition");
+        } catch {
+            firstVisit = firstVisit && !document.referrer.startsWith(location.origin + "/");
+        }
+        if (logoArrival) window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+        if (!off() && (firstVisit || logoArrival)) {
             document.body.classList.add("page-arriving");
             if (pageCurtain) {
+                gs.set(pageCurtain, { yPercent: 0, autoAlpha: 1 });
                 pageScene = gs.timeline({
                     onComplete: () => {
                         document.body.classList.remove("page-arriving");
@@ -529,7 +543,7 @@
                 });
                 pageScene
                     .set(pageCurtain, { yPercent: 0, autoAlpha: 1 })
-                    .to(pageCurtain, { yPercent: -100, duration: 0.65, ease: "power3.inOut" }, 0.06);
+                    .to(pageCurtain, { yPercent: -100, duration: logoArrival ? 0.95 : 0.65, ease: logoArrival ? "power2.inOut" : "power3.inOut" }, 0.04);
                 const landing = $(".product-intro, .collection-intro, .article-hero");
                 if (landing)
                     pageScene.fromTo(
@@ -546,44 +560,32 @@
                     );
             } else arrivalTimer = setTimeout(() => document.body.classList.remove("page-arriving"), 650);
         }
+        document.documentElement.classList.remove("logo-home-pending");
         schedule();
     });
-    document.addEventListener("click", (e) => {
-        const a = e.target.closest("a[href]");
-        if (
-            !a ||
-            e.defaultPrevented ||
-            e.button !== 0 ||
-            e.ctrlKey ||
-            e.metaKey ||
-            e.shiftKey ||
-            e.altKey ||
-            a.target === "_blank" ||
-            a.hasAttribute("download") ||
-            off()
-        )
-            return;
-        const url = new URL(a.href, location.href);
-        if (
-            url.origin !== location.origin ||
-            !url.pathname.endsWith(".html") ||
-            (url.pathname === location.pathname && url.search === location.search)
-        )
-            return;
-        e.preventDefault();
-        if (navigating) return;
-        navigating = true;
+    // Only the brand logos trigger this homeward sweep.
+    document.addEventListener("click", (event) => {
+        const link = event.target.closest(".header > a:first-child, a.footer-brand-logo");
+        if (!link || !link.querySelector('img[src="assets/logo.svg"]') ||
+            event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey ||
+            event.shiftKey || event.altKey || link.target === "_blank" || off()) return;
+        const url = new URL(link.href, location.href);
+        if (url.origin !== location.origin || !url.pathname.endsWith("/index.html")) return;
+        event.preventDefault();
+        if (logoNavigating) return;
+        logoNavigating = true;
         clearTimeout(arrivalTimer);
+        pageScene?.kill();
+        try { sessionStorage.setItem("marshall-logo-home", url.pathname); } catch {}
+        history.scrollRestoration = "manual";
         document.body.classList.remove("page-arriving");
         document.body.classList.add("page-leaving");
+        const navigate = () => location.assign(url.href);
         if (pageCurtain) {
-            pageScene?.kill();
-            pageScene = gs.timeline({ onComplete: () => location.assign(url.href) });
-            pageScene
-                .set(pageCurtain, { yPercent: 100, autoAlpha: 1 })
-                .to(pageCurtain, { yPercent: 0, duration: 0.5, ease: "power3.inOut" })
-                .to({}, { duration: 0.08 });
-        } else setTimeout(() => location.assign(url.href), 500);
+            pageScene = gs.timeline({ onComplete: navigate });
+            pageScene.set(pageCurtain, { yPercent: 100, autoAlpha: 1 })
+                .to(pageCurtain, { yPercent: 0, duration: 0.8, ease: "power2.inOut" });
+        } else arrivalTimer = setTimeout(navigate, 800);
     });
     setupAnimations();
     update();
