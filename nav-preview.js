@@ -9,9 +9,22 @@
             "THE COLLECTION",
             "An edit of sound.",
             [
-                ["Major V", "On-ear headphones", "major.jpg", "major-v.html"],
-                ["Emberton III", "Portable sound", "emberton-iii.jpg", "emberton-iii.html"],
-                ["Woburn III", "Home listening", "woburn-iii.jpg", "woburn-iii.html"],
+                ["Major V", "", "", "major-v.html"],
+                ["Monitor III ANC", "", "", "monitor-iii-anc.html"],
+                ["Minor IV", "", "", "minor-iv.html"],
+                ["Stanmore III", "", "", "stanmore-iii.html"],
+                ["Woburn III", "", "", "woburn-iii.html"],
+                ["Emberton III", "", "", "emberton-iii.html"],
+                ["Middleton II", "", "", "middleton-ii.html"],
+                ["Kilburn III", "", "", "kilburn-iii.html"],
+                ["Major IV", "", "", "major-iv.html"],
+                ["Monitor II A.N.C.", "", "", "monitor-ii-anc.html"],
+                ["Motif II A.N.C.", "", "", "motif-ii-anc.html"],
+                ["Acton III", "", "", "acton-iii.html"],
+                ["Willen II", "", "", "willen-ii.html"],
+                ["Milton A.N.C.", "", "", "milton-anc.html"],
+                ["Major V · Cream", "", "", "major-v-cream.html"],
+                ["Monitor III A.N.C. · Cream", "", "", "monitor-iii-cream.html"],
             ],
         ],
         "headphones.html": [
@@ -19,30 +32,37 @@
             "A world of your own.",
             [
                 ["Major V", "Listen. Fold. Go again.", "major.jpg", "major-v.html"],
-                ["Monitor III ANC", "A world of your own.", "monitor-iii.jpg", "monitor-iii-anc.html"],
+                ["Monitor III ANC", "", "", "monitor-iii-anc.html"],
+                ["Major IV", "", "", "major-iv.html"],
+                ["Monitor II A.N.C.", "", "", "monitor-ii-anc.html"],
+                ["Milton A.N.C.", "", "", "milton-anc.html"],
+                ["Major V · Cream", "", "", "major-v-cream.html"],
+                ["Monitor III A.N.C. · Cream", "", "", "monitor-iii-cream.html"],
             ],
         ],
         "speakers.html": [
             "SHARED SPACES",
             "Room for more sound.",
             [
-                ["Emberton III", "Music, wherever you go.", "emberton-iii.jpg", "emberton-iii.html"],
-                ["Stanmore III", "At home with music.", "stanmore.jpg", "stanmore-iii.html"],
-                ["Kilburn III", "Take the long way.", "kilburn-iii.jpg", "kilburn-iii.html"],
+                ["Home speakers", "", "", "home-speakers.html"],
+                ["Portable speakers", "", "", "portable-speakers.html"],
             ],
         ],
         "journal.html": [
             "FIELD NOTES",
             "Beyond the object.",
             [
-                ["The Old Blue Last", "London / Where it begins.", "blue-last.jpg", "story-london.html"],
-                ["Badehaus", "Berlin / A place to belong.", "badehaus.jpg", "story-berlin.html"],
+                ["Where it begins.", "", "", "story-london.html"],
+                ["A place to belong.", "", "", "story-berlin.html"],
             ],
         ],
         "philosophy.html": [
             "OUR STORY",
             "The spirit of sound.",
-            [["Our philosophy", "Culture. Craft. Character.", "amp.jpg", "philosophy.html"]],
+            [
+                ["A life in sound.", "", "", "philosophy.html"],
+                ["Crafted to be felt.", "", "", "philosophy.html#craft"],
+            ],
         ],
     };
     const links = [...nav.querySelectorAll("a")];
@@ -79,7 +99,11 @@
         const all = node("a", "header-preview-all", link.textContent.trim() + " 전체 보기 ↗");
         all.href = link.href;
         const grid = node("div", "header-preview-grid");
-        data[2].forEach(([title, subtitle, photo, href]) => {
+        const featured =
+            link.getAttribute("href") === "collection.html"
+                ? [data[2][0], data[2][1], data[2][2], data[2][3], data[2][5]]
+                : data[2].slice(0, 5);
+        featured.forEach(([title, subtitle, photo, href]) => {
             const item = node("a", "header-preview-item");
             item.href = href;
             item.append(node("strong", "", title));

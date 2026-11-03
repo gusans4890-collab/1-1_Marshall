@@ -21,7 +21,7 @@
 }
 .selection.has-product-scroll .selection-stage {
     position: sticky;
-    top: 90px;
+    top: var(--selection-sticky-top, 80px);
 }
 .editorial-home main > section {
     isolation: isolate;
@@ -84,6 +84,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.craft-card:first-child img {
+    object-position: center 75%;
 }
 .craft-card small {
     display: block;
@@ -148,6 +151,22 @@
 }
 .opening-scroll .opening-photo img {
     transition: none;
+}
+.editorial-home .opening-heading,
+.editorial-home .opening-caption {
+    translate: 0 -30px;
+}
+.editorial-home .opening-photo {
+    top: -60px;
+}
+@media (max-width: 700px) {
+    .editorial-home .opening-heading,
+    .editorial-home .opening-caption {
+        translate: 0 -15px;
+    }
+    .editorial-home .opening-photo {
+        top: -30px;
+    }
 }
 .editorial-home .opening-controls,
 .editorial-home .selection-controls {
@@ -230,6 +249,17 @@
     }
 }
 @media (max-width: 700px) {
+    .craft-notes .editorial-heading h2 {
+        font-size: clamp(46px, 12vw, 68px);
+        line-height: 1.12;
+        margin-bottom: 24px;
+        overflow-wrap: anywhere;
+    }
+    .craft-notes .editorial-heading > p {
+        margin-top: 0;
+        line-height: 1.8;
+        word-break: keep-all;
+    }
     .selection-stage .editorial-heading {
         margin-bottom: 20px;
     }
@@ -251,11 +281,28 @@
         height: 72%;
     }
     .selection-track {
-        gap: 22px;
+        gap: 16px;
+    }
+    .selection-scroll {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x pan-y;
     }
     .selection-scroll .selection-slide {
-        flex-basis: 82%;
-        width: 82%;
+        flex-basis: 100%;
+        width: 100%;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+    .editorial-home .selection-stage .selection-scroll .selection-image {
+        max-height: none;
+        aspect-ratio: 4 / 3;
+    }
+    .selection-stage .selection-scroll .selection-image img {
+        object-fit: contain;
     }
     .selection-scroll .selection-slide h3 {
         font-size: 34px;

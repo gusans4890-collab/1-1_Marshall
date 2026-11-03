@@ -27,8 +27,9 @@
         <link rel="stylesheet" href="page-transitions.css" />
         <link rel="stylesheet" href="viewport-layout.css?v=20261103-desktop-only" />
         <link rel="stylesheet" href="header-layout.css" />
-        <link rel="stylesheet" href="responsive-fixes.css?v=20261103-mobile-only" />
+        <link rel="stylesheet" href="responsive-fixes.css?v=20261103-mobile-polish" />
         <link rel="stylesheet" href="back-top.css?v=20261103-fixed" />
+        <link rel="stylesheet" href="page-content.css?v=3" />
     </head>
     <body class="">
         <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
@@ -58,10 +59,10 @@
                 <div class="menu-side">
                     <div class="menu-preview"><img id="menu-preview-image" src="assets/monitor-iii.jpg" alt="" /></div>
                     <div class="menu-products">
-                        <span>EXPLORE BY CATEGORY</span><a href="headphones.html">Headphones <small>02</small> ↗</a
-                        ><a href="earbuds.html">Earbuds <small>01</small> ↗</a
-                        ><a href="home-speakers.html">Home speakers <small>02</small> ↗</a
-                        ><a href="portable-speakers.html">Portable speakers <small>03</small> ↗</a>
+                        <span>EXPLORE BY CATEGORY</span><a href="headphones.html">Headphones <small>07</small> ↗</a
+                        ><a href="earbuds.html">Earbuds <small>02</small> ↗</a
+                        ><a href="home-speakers.html">Home speakers <small>03</small> ↗</a
+                        ><a href="portable-speakers.html">Portable speakers <small>04</small> ↗</a>
                     </div>
                 </div>
             </div>
@@ -79,22 +80,46 @@
                     <div class="article-meta">
                         <span>The Old Blue Last</span><span>MARSHALL JOURNAL / EDITORIAL</span>
                     </div>
-                    <div class="article-cover">
-                        <img src="assets/blue-last.jpg" alt="The Old Blue Last 공연장" data-depth="" />
+                    <div class="article-cover venue-cover">
+                        <img
+                            src="assets/old-blue-last-detail.jpg"
+                            alt="런던 The Old Blue Last 공연장 외관"
+                            data-depth=""
+                        />
                     </div>
                 </section>
-                <section class="article-body section">
-                    <span class="section-label">THE PLACES THAT MOVE US</span>
-                    <p class="article-lead reveal">
-                        작은 공연장에 들어서는 순간, 음악과의 거리는 가까워집니다. 눈앞에서 움직이는 손, 방 안을 채우는
-                        리듬, 함께 듣는 사람들의 표정. 공연의 기억은 소리만으로 남지 않습니다.
-                    </p>
-                    <h2 class="reveal">Small room.<br />Big <em>feeling.</em></h2>
-                    <p class="reveal">
-                        우리가 사랑하는 음악은 누군가의 첫 무대에서 시작됩니다. 큰 이름보다 가까운 울림을 찾는 밤. 다음
-                        플레이리스트의 첫 곡은 어쩌면 이런 공간에서 만나게 될지도 모릅니다.
-                    </p>
-                    <a class="text-link" href="journal.html">ALL STORIES <span>↗</span></a>
+                <section class="story-reading section">
+                    <div class="story-reading-intro">
+                        <span class="section-label">LONDON / THE OLD BLUE LAST</span>
+                        <p class="article-lead">
+                            작은 공연장에서는 연주자의 움직임과 관객의 반응이 한 공간 안에서 바로 만납니다. 처음 듣는
+                            곡도 가까이에서 경험하면 오래 기억에 남습니다.
+                        </p>
+                    </div>
+                    <div class="story-reading-grid">
+                        <figure>
+                            <img
+                                src="assets/old-blue-last-detail.jpg"
+                                alt="런던 The Old Blue Last 공연장 외관"
+                                loading="lazy"
+                            />
+                            <figcaption>LONDON / THE OLD BLUE LAST / 공연장 외관</figcaption>
+                        </figure>
+                        <div class="story-reading-copy">
+                            <span class="kicker">THE PLACES THAT MOVE US</span>
+                            <h2>무대와 관객 사이의 짧은 거리</h2>
+                            <p>
+                                작은 공연장에서는 연주자의 움직임과 관객의 반응이 한 공간 안에서 바로 만납니다. 처음
+                                듣는 곡도 가까이에서 경험하면 오래 기억에 남습니다.
+                            </p>
+                            <h3>새로운 음악을 만나는 밤</h3>
+                            <p>
+                                익숙한 이름을 찾아가는 공연도 좋지만, 모르는 아티스트의 첫 곡을 기다리는 시간에는 다른
+                                즐거움이 있습니다. 한 공간에 모여 듣는 경험은 음악을 발견하는 또 하나의 방법입니다.
+                            </p>
+                            <a class="text-link" href="journal.html">모든 저널 보기 ↗</a>
+                        </div>
+                    </div>
                 </section>
             </article>
             <a class="next-product" href="story-berlin.html"
@@ -280,6 +305,6 @@
         <script src="motion.js?v=20261103-title-motion"></script>
         <script src="footer.js"></script>
         <script src="photo-response.js"></script>
-        <script src="nav-preview.js"></script>
+        <script src="nav-preview.js?v=20261103-featured"></script>
     </body>
 </html>

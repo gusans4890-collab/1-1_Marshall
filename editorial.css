@@ -50,6 +50,7 @@ small,
 }
 .header {
     height: 100px;
+    background: #151616;
     padding: 0 5%;
     border-bottom: 1px solid #ffffff12;
     gap: 50px;
@@ -69,7 +70,12 @@ small,
 }
 .header.scrolled {
     height: 76px;
-    background: #151616f2;
+    background: #151616;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+.editorial-home .header.over-cinema {
+    background: transparent;
 }
 .header .desktop-nav > a:after {
     height: 1px;

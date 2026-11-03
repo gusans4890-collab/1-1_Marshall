@@ -1,11 +1,11 @@
 .product-hero-scene .product-visual {
-    width: min(100%, 520px);
+    width: min(100%, 680px);
     justify-self: center;
 }
 .product-hero-scene .product-visual > img,
 .product-hero-scene.is-held .product-visual > img {
     width: 100%;
-    height: clamp(260px, 44svh, 460px);
+    height: clamp(320px, 56svh, 620px);
     object-fit: contain;
 }
 .product-gallery .gallery-main {
@@ -55,12 +55,12 @@
 }
 @media (max-width: 1000px) {
     .product-hero-scene .product-visual {
-        width: min(100%, 430px);
+        width: min(100%, 580px);
     }
 }
 @media (max-width: 700px) {
     .product-hero-scene .product-visual > img {
-        height: clamp(180px, 28svh, 280px);
+        height: clamp(260px, 42svh, 380px);
     }
     .product-gallery .gallery-main {
         height: 36svh;

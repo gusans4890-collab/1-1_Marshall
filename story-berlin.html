@@ -27,8 +27,9 @@
         <link rel="stylesheet" href="page-transitions.css" />
         <link rel="stylesheet" href="viewport-layout.css?v=20261103-desktop-only" />
         <link rel="stylesheet" href="header-layout.css" />
-        <link rel="stylesheet" href="responsive-fixes.css?v=20261103-mobile-only" />
+        <link rel="stylesheet" href="responsive-fixes.css?v=20261103-mobile-polish" />
         <link rel="stylesheet" href="back-top.css?v=20261103-fixed" />
+        <link rel="stylesheet" href="page-content.css?v=3" />
     </head>
     <body class="">
         <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
@@ -58,10 +59,10 @@
                 <div class="menu-side">
                     <div class="menu-preview"><img id="menu-preview-image" src="assets/monitor-iii.jpg" alt="" /></div>
                     <div class="menu-products">
-                        <span>EXPLORE BY CATEGORY</span><a href="headphones.html">Headphones <small>02</small> ↗</a
-                        ><a href="earbuds.html">Earbuds <small>01</small> ↗</a
-                        ><a href="home-speakers.html">Home speakers <small>02</small> ↗</a
-                        ><a href="portable-speakers.html">Portable speakers <small>03</small> ↗</a>
+                        <span>EXPLORE BY CATEGORY</span><a href="headphones.html">Headphones <small>07</small> ↗</a
+                        ><a href="earbuds.html">Earbuds <small>02</small> ↗</a
+                        ><a href="home-speakers.html">Home speakers <small>03</small> ↗</a
+                        ><a href="portable-speakers.html">Portable speakers <small>04</small> ↗</a>
                     </div>
                 </div>
             </div>
@@ -77,22 +78,38 @@
                     <a class="breadcrumb" href="journal.html">JOURNAL / VENUES / BERLIN</a>
                     <h1>A place<br />to <em>belong.</em></h1>
                     <div class="article-meta"><span>Badehaus</span><span>MARSHALL JOURNAL / EDITORIAL</span></div>
-                    <div class="article-cover">
-                        <img src="assets/badehaus.jpg" alt="Badehaus 공연장" data-depth="" />
+                    <div class="article-cover venue-cover">
+                        <img src="assets/badehaus-detail.jpg" alt="베를린 Badehaus 공연장 외관" data-depth="" />
                     </div>
                 </section>
-                <section class="article-body section">
-                    <span class="section-label">THE PLACES THAT MOVE US</span>
-                    <p class="article-lead reveal">
-                        서로 다른 하루를 보낸 사람들이 같은 리듬 앞에 모입니다. 언어가 달라도, 처음 만난 사이라도.
-                        무대에서 흘러나오는 한 곡이 낯선 공간을 익숙한 곳으로 바꿉니다.
-                    </p>
-                    <h2 class="reveal">Come for music.<br />Stay for <em>people.</em></h2>
-                    <p class="reveal">
-                        음악을 듣는 일은 때로 사람을 만나는 일이기도 합니다. 좋아하는 곡의 첫 소절에 서로 웃고, 마지막
-                        음이 끝난 뒤에도 이야기는 이어집니다. 우리가 다시 공연장을 찾게 되는 이유입니다.
-                    </p>
-                    <a class="text-link" href="journal.html">ALL STORIES <span>↗</span></a>
+                <section class="story-reading section">
+                    <div class="story-reading-intro">
+                        <span class="section-label">BERLIN / BADEHAUS</span>
+                        <p class="article-lead">
+                            서로 다른 하루를 보낸 사람들이 공연장에 모여 같은 곡을 듣습니다. 무대와 객석이 함께
+                            만들어내는 에너지는 녹음된 음악과는 다른 기억으로 남습니다.
+                        </p>
+                    </div>
+                    <div class="story-reading-grid">
+                        <figure>
+                            <img src="assets/badehaus-detail.jpg" alt="베를린 Badehaus 공연장 외관" loading="lazy" />
+                            <figcaption>BERLIN / BADEHAUS / 공연장 외관</figcaption>
+                        </figure>
+                        <div class="story-reading-copy">
+                            <span class="kicker">THE PLACES THAT MOVE US</span>
+                            <h2>같은 리듬으로 모이는 공간</h2>
+                            <p>
+                                서로 다른 하루를 보낸 사람들이 공연장에 모여 같은 곡을 듣습니다. 무대와 객석이 함께
+                                만들어내는 에너지는 녹음된 음악과는 다른 기억으로 남습니다.
+                            </p>
+                            <h3>음악이 이어주는 사람들</h3>
+                            <p>
+                                좋아하는 곡에 고개를 끄덕이고 공연이 끝난 뒤 감상을 나누는 순간까지, 음악은 낯선 사람들
+                                사이에 대화의 계기를 만듭니다.
+                            </p>
+                            <a class="text-link" href="journal.html">모든 저널 보기 ↗</a>
+                        </div>
+                    </div>
                 </section>
             </article>
             <a class="next-product" href="story-london.html"
@@ -278,6 +295,6 @@
         <script src="motion.js?v=20261103-title-motion"></script>
         <script src="footer.js"></script>
         <script src="photo-response.js"></script>
-        <script src="nav-preview.js"></script>
+        <script src="nav-preview.js?v=20261103-featured"></script>
     </body>
 </html>

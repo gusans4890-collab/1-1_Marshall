@@ -10,6 +10,7 @@
 .selection-stage .editorial-heading {
     border-top: 1px solid #b3ab9b;
     padding-top: 18px;
+    margin-bottom: 54px;
 }
 .selection-stage .editorial-heading .kicker {
     font-size: 9px;
@@ -17,13 +18,21 @@
 }
 .selection-stage .editorial-heading h2 {
     letter-spacing: -0.055em;
+    line-height: 1.05;
+}
+.selection-stage .editorial-heading h2 .word-clip {
+    margin-bottom: -0.1em;
 }
 .selection-stage .editorial-heading h2 em {
     color: #71634e;
 }
+.selection-stage .selection-aside p {
+    translate: 0 -10px;
+}
 .selection-stage .editorial-heading h2 em {
     position: relative;
     display: inline-block;
+    translate: 0 5px;
 }
 .selection-stage .editorial-heading h2 em::after {
     content: "";
@@ -115,6 +124,7 @@
     align-items: center;
     margin-top: 25px;
     padding-top: 2px;
+    translate: 0 25px;
     font: 8px var(--sans);
     letter-spacing: 0.12em;
     color: #7d7668;

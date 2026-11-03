@@ -8,6 +8,7 @@
     const $ = (selector, root = document) => root.querySelector(selector);
     const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
     const desktopPointer = matchMedia("(min-width: 701px) and (hover: hover) and (pointer: fine)");
+    const mobileLayout = matchMedia("(max-width: 700px)");
     const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
     const motionOff = () => reduceMotion.matches || document.body.classList.contains("motion-paused");
     let scroll = null;
@@ -168,14 +169,6 @@
                     const heroScene = $(".product-hero-scene");
                     if (heroScene && context.conditions.roomy) {
                         heroScene.classList.add("is-held");
-                        drift(
-                            ".product-visual > img",
-                            { scale: 1 },
-                            { scale: 1.035 },
-                            heroScene,
-                            "top top",
-                            "bottom bottom",
-                        );
                     }
                 }
                 if ($(".article-cover")) {
@@ -222,25 +215,29 @@
                             scale: 1.045 - Math.min(1, position - active) * 0.045,
                         });
                     };
-                    gsap.to(state, {
-                        progress: 1,
-                        ease: "none",
-                        onUpdate: paintSlide,
-                        scrollTrigger: {
-                            id: "opening-scroll",
-                            trigger: scene || openingSection,
-                            start: "top top",
-                            end: scene ? "bottom bottom" : () => "+=" + slides.length * innerHeight * 0.9,
-                            refreshPriority: 20,
-                            scrub: true,
-                            anticipatePin: 1,
-                            invalidateOnRefresh: true,
+                    ScrollTrigger.create({
+                        id: "opening-scroll",
+                        trigger: scene || openingSection,
+                        start: "top top",
+                        end: scene ? "bottom bottom" : () => "+=" + slides.length * innerHeight * 0.9,
+                        refreshPriority: 20,
+                        onUpdate: (self) => {
+                            state.progress = self.progress;
+                            paintSlide();
+                        },
+                        onRefresh: (self) => {
+                            state.progress = self.progress;
+                            paintSlide();
                         },
                     });
-                    paintSlide();
+                    // Image dimensions and the opening scene can settle after the initial refresh.
+                    // Recalculate the scroll range once the page has finished loading.
+                    if (document.readyState !== "complete") {
+                        window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
+                    }
                 }
                 const productViewport = $(".selection-scroll");
-                if (productViewport) {
+                if (productViewport && desktop) {
                     const track = $(".selection-track", productViewport);
                     const stage = $(".selection-stage") || productViewport;
                     const title = $(".editorial-heading h2", stage);
@@ -297,11 +294,17 @@
                     const section = stage.closest(".selection");
                     section.classList.add("has-product-scroll");
                     const travel = () => Math.max(1, distance()) + innerHeight * 0.35;
+                    const arrivalPause = () => Math.min(180, innerHeight * 0.2);
                     const measure = () => {
                         const style = getComputedStyle(section);
+                        const titleTop = title
+                            ? title.getBoundingClientRect().top - stage.getBoundingClientRect().top
+                            : 0;
+                        const stickyTop = -12 - titleTop;
+                        section.style.setProperty("--selection-sticky-top", `${stickyTop}px`);
                         section.style.setProperty(
                             "--selection-scene-height",
-                            `${stage.offsetHeight + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom) + travel()}px`,
+                            `${stage.offsetHeight + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom) + travel() + arrivalPause()}px`,
                         );
                     };
                     measure();
@@ -310,7 +313,8 @@
                         id: "product-scroll",
                         trigger: section,
                         refreshPriority: 10,
-                        start: () => `top ${90 - parseFloat(getComputedStyle(section).paddingTop)}px`,
+                        start: () =>
+                            `top ${parseFloat(getComputedStyle(section).getPropertyValue("--selection-sticky-top")) - parseFloat(getComputedStyle(section).paddingTop) - arrivalPause()}px`,
                         end: () => "+=" + travel(),
                         onRefreshInit: measure,
                         onUpdate: (self) => {
@@ -630,12 +634,74 @@
         else window.scrollTo({ top: destination, behavior: "smooth" });
     });
 
+    const mobileSelection = $(".selection-scroll");
+    let dragStart = null;
+    let dragged = false;
+    mobileSelection?.addEventListener("pointerdown", (event) => {
+        if (!mobileLayout.matches || event.pointerType !== "mouse" || event.button !== 0) return;
+        dragStart = { x: event.clientX, scroll: mobileSelection.scrollLeft };
+        dragged = false;
+    });
+    mobileSelection?.addEventListener("pointermove", (event) => {
+        if (!dragStart) return;
+        const delta = event.clientX - dragStart.x;
+        if (!dragged && Math.abs(delta) > 8) {
+            dragged = true;
+            mobileSelection.setPointerCapture(event.pointerId);
+        }
+        if (dragged) {
+            event.preventDefault();
+            mobileSelection.scrollLeft = dragStart.scroll - delta;
+        }
+    });
+    mobileSelection?.addEventListener("pointerup", () => {
+        dragStart = null;
+    });
+    mobileSelection?.addEventListener("pointercancel", () => {
+        dragStart = null;
+    });
+    mobileSelection?.addEventListener(
+        "click",
+        (event) => {
+            if (dragged) {
+                event.preventDefault();
+                event.stopPropagation();
+                dragged = false;
+            }
+        },
+        true,
+    );
+    mobileSelection?.addEventListener(
+        "scroll",
+        () => {
+            if (!matchMedia("(max-width: 700px)").matches) return;
+            const cards = $$(".selection-slide", mobileSelection);
+            const stage = mobileSelection.closest(".selection-stage");
+            if (!cards.length || !stage) return;
+            const current = cards.reduce(
+                (best, card, i) =>
+                    Math.abs(card.offsetLeft - mobileSelection.scrollLeft) <
+                    Math.abs(cards[best].offsetLeft - mobileSelection.scrollLeft)
+                        ? i
+                        : best,
+                0,
+            );
+            cards.forEach((card, i) => card.classList.toggle("is-current", i === current));
+            stage.style.setProperty("--selection-progress", current / Math.max(1, cards.length - 1));
+            const count = $(".selection-folio-count", stage);
+            if (count)
+                count.innerHTML = `${String(current + 1).padStart(2, "0")} <small>/ ${String(cards.length).padStart(2, "0")}</small>`;
+        },
+        { passive: true },
+    );
+
     function setup() {
         scenes?.revert();
         scenes = null;
         $(".selection-scroll")?.classList.remove("is-scroll-driven");
         $(".selection")?.classList.remove("has-product-scroll");
         $(".selection")?.style.removeProperty("--selection-scene-height");
+        $(".selection")?.style.removeProperty("--selection-sticky-top");
         gsap.set(".selection-track", { clearProps: "transform" });
         $(".opening")?.classList.remove("is-scroll-driven");
         $(".opening-scene")?.classList.remove("is-scroll-driven");
@@ -647,6 +713,8 @@
         hidePointer();
         gsap.killTweensOf(magnetic);
         gsap.set(magnetic, { clearProps: "transform" });
+        const cue = $(".selection-folio > span:first-child");
+        if (cue) cue.textContent = mobileLayout.matches ? "SWIPE TO EXPLORE" : "SCROLL TO DISCOVER";
         if (destroyed || motionOff()) return;
         createScroll();
         createScenes();
@@ -667,6 +735,7 @@
         ScrollTrigger.refresh();
     });
     desktopPointer.addEventListener("change", setup);
+    mobileLayout.addEventListener("change", setup);
     document.addEventListener("visibilitychange", () => {
         syncScrollLock();
         if (document.hidden) hidePointer();

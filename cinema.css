@@ -33,8 +33,9 @@ body.entry-locked {
 }
 .cinema-poster {
     object-fit: cover;
-    filter: brightness(0.52);
-    transform: scale(1.08);
+    object-position: center 65%;
+    filter: grayscale(0.8) brightness(0.55);
+    transform: scale(1.16);
     animation: cinema-drift 18s ease-out both;
 }
 .cinema-film {
@@ -133,6 +134,24 @@ body.entry-locked {
     width: 46px;
     height: 46px;
     font-size: 20px;
+    animation: cinema-scroll-cue 2.2s ease-in-out infinite;
+    transition:
+        border-color 0.25s,
+        background-color 0.25s;
+}
+.cinema-explore:hover span,
+.cinema-explore:focus-visible span {
+    border-color: #fff;
+    background-color: #ffffff18;
+}
+@keyframes cinema-scroll-cue {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px);
+    }
 }
 .cinema-controls {
     display: flex;
@@ -196,7 +215,7 @@ body.entry-locked {
 }
 @keyframes cinema-drift {
     to {
-        transform: scale(1);
+        transform: scale(1.08);
     }
 }
 @media (max-width: 700px) {
@@ -234,7 +253,8 @@ body.entry-locked {
     }
     .cinema-line > span,
     .cinema-copy p,
-    .cinema-poster {
+    .cinema-poster,
+    .cinema-explore span {
         animation: none;
     }
     .cinema-film {

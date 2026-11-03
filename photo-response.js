@@ -8,6 +8,7 @@
     ];
     const resetters = [];
     frames.forEach((frame) => {
+        if (frame.closest(".product-page") && frame.matches(".product-visual, .detail-image, .gallery-main")) return;
         frame.classList.add("photo-response");
         let raf = 0,
             x = 0,

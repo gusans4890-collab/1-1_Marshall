@@ -120,6 +120,36 @@
         }
     }
     @media (max-width: 700px) {
+        .editorial-home .section,
+        .product-page .section {
+            padding-block: 64px;
+        }
+        .editorial-home .selection-scroll {
+            scrollbar-width: none;
+        }
+        .editorial-home .selection-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .editorial-home .selection-slide > a,
+        .editorial-home .selection-slide p {
+            text-decoration: none;
+        }
+        .editorial-home .selection-slide p {
+            margin: 8px 0 0;
+            line-height: 1.75;
+            word-break: keep-all;
+        }
+        .editorial-home .selection-folio {
+            margin-top: 24px;
+        }
+        .editorial-home .craft-notes .editorial-heading,
+        .editorial-home .journal-preview .editorial-heading {
+            margin-bottom: 32px;
+        }
+        .editorial-home .craft-grid,
+        .editorial-home .journal-grid {
+            gap: 36px;
+        }
         .cinema-film {
             width: 100%;
         }
@@ -182,7 +212,7 @@
         }
         .selection-stage .editorial-heading h2 {
             font-size: clamp(42px, 11vw, 58px);
-            line-height: 1;
+            line-height: 1.05;
         }
         .selection-stage .selection-aside {
             margin-top: 18px;

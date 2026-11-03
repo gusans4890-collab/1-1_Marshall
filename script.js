@@ -385,7 +385,7 @@
                         invalidateOnRefresh: true,
                     },
                 });
-            $$(".story-image img,[data-depth]").forEach((img) =>
+            $$(".story-image img,[data-depth]").filter((img) => !img.closest(".product-page .detail-image")).forEach((img) =>
                 gs.fromTo(
                     img,
                     { yPercent: -6, scale: 1.14 },
@@ -457,6 +457,8 @@
         queued = false;
         progress.style.transform = `scaleX(${clamp(scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight))})`;
         header?.classList.toggle("scrolled", scrollY > 50);
+        const cinema = $(".cinema");
+        header?.classList.toggle("over-cinema", !!cinema && cinema.getBoundingClientRect().bottom > header.offsetHeight);
         const dockBounds = topDock.getBoundingClientRect();
         const showTop = dockBounds.top < innerHeight - 24;
         top.classList.toggle("is-visible", showTop);
