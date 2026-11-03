@@ -1,0 +1,65 @@
+[
+  {
+    "page": "index",
+    "file": "01-index.png",
+    "width": 1440,
+    "height": 10250,
+    "bytes": 4788255
+  },
+  {
+    "page": "major-v",
+    "file": "02-major-v.png",
+    "width": 1440,
+    "height": 7961,
+    "bytes": 1052639
+  },
+  {
+    "page": "monitor-iii-anc",
+    "file": "03-monitor-iii-anc.png",
+    "width": 1440,
+    "height": 7763,
+    "bytes": 1272928
+  },
+  {
+    "page": "minor-iv",
+    "file": "04-minor-iv.png",
+    "width": 1440,
+    "height": 7137,
+    "bytes": 788862
+  },
+  {
+    "page": "emberton-iii",
+    "file": "05-emberton-iii.png",
+    "width": 1440,
+    "height": 7873,
+    "bytes": 1437916
+  },
+  {
+    "page": "middleton-ii",
+    "file": "06-middleton-ii.png",
+    "width": 1440,
+    "height": 7872,
+    "bytes": 1117130
+  },
+  {
+    "page": "kilburn-iii",
+    "file": "07-kilburn-iii.png",
+    "width": 1440,
+    "height": 7872,
+    "bytes": 1213316
+  },
+  {
+    "page": "stanmore-iii",
+    "file": "08-stanmore-iii.png",
+    "width": 1440,
+    "height": 7987,
+    "bytes": 1190446
+  },
+  {
+    "page": "woburn-iii",
+    "file": "09-woburn-iii.png",
+    "width": 1440,
+    "height": 7047,
+    "bytes": 869034
+  }
+]

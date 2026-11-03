@@ -1,0 +1,213 @@
+.listening-room {
+    position: relative;
+    min-height: max(760px, 95svh);
+    height: auto;
+    overflow: hidden;
+    color: #f4eee3;
+    background: #282b26;
+}
+.listening-room-photo,
+.listening-room-shade {
+    position: absolute;
+    inset: 0;
+}
+.listening-room-photo {
+    overflow: hidden;
+}
+.listening-room-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.listening-room-shade {
+    background:
+        linear-gradient(90deg, #0e1410cc, #0e141055 52%, #0e141008), linear-gradient(0deg, #0e141080, transparent 40%);
+}
+.listening-room-top,
+.listening-room-bottom {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    font: 9px var(--sans);
+    letter-spacing: 0.16em;
+}
+.listening-room-top {
+    top: 45px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ffffff35;
+}
+.listening-room-bottom {
+    bottom: 36px;
+}
+.listening-room-copy {
+    position: relative;
+    padding: 165px 8% 130px;
+    max-width: 950px;
+}
+.listening-room-copy .kicker {
+    color: #d5c4a5;
+}
+.listening-room h2 {
+    font-size: clamp(76px, 8.5vw, 136px);
+    margin: 32px 0;
+    line-height: 0.95;
+}
+.listening-room-copy p {
+    font-size: 12px;
+    line-height: 2;
+    color: #dedbd1;
+    margin-bottom: 35px;
+}
+.sound-finder {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 9%;
+    background: #ded9ce;
+    color: #272b25;
+}
+.sound-finder .kicker {
+    color: #77664d;
+}
+.sound-finder h2 {
+    font-size: clamp(62px, 6.3vw, 100px);
+    line-height: 0.96;
+    margin: 30px 0;
+}
+.sound-finder-intro > p {
+    font-size: 12px;
+    line-height: 2;
+    color: #707568;
+    margin-bottom: 32px;
+}
+.sound-finder .text-link {
+    border-color: #858b7c;
+}
+.sound-finder-note {
+    margin-top: 85px;
+    padding-top: 20px;
+    border-top: 1px solid #a6aa9d;
+}
+.sound-finder-note > span {
+    font-size: 11px;
+    line-height: 1.8;
+    letter-spacing: 0.12em;
+}
+.sound-finder-note small {
+    display: block;
+    color: #777d6e;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    margin-top: 20px;
+}
+.sound-choice {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr) 125px;
+    gap: 22px;
+    align-items: center;
+    padding: 30px 0;
+    border-top: 1px solid #9da492;
+}
+.sound-choice:last-child {
+    border-bottom: 1px solid #9da492;
+}
+.sound-choice-number {
+    align-self: start;
+    font-size: 10px;
+    color: #777d6e;
+}
+.sound-choice small {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    color: #777d6e;
+}
+.sound-choice h3 {
+    font: 22px var(--sans);
+    letter-spacing: -0.045em;
+    margin: 16px 0;
+}
+.sound-choice p {
+    font-size: 11px;
+    line-height: 1.9;
+    color: #707568;
+}
+.sound-choice-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 10px;
+}
+.sound-choice-photo {
+    overflow: hidden;
+    aspect-ratio: 0.85;
+}
+.sound-choice img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.sound-choice:hover img {
+    transform: scale(1.06);
+}
+.sound-choice:focus-visible {
+    outline: 2px solid #77664d;
+    outline-offset: 4px;
+}
+@media (max-width: 1000px) {
+    .sound-finder {
+        gap: 5%;
+    }
+    .sound-choice {
+        grid-template-columns: 18px minmax(0, 1fr) 90px;
+        gap: 14px;
+    }
+    .sound-choice h3 {
+        font-size: 19px;
+    }
+}
+@media (max-width: 700px) {
+    .listening-room {
+        height: auto;
+        min-height: 660px;
+    }
+    .listening-room-copy {
+        padding: 145px 7% 120px;
+    }
+    .listening-room h2 {
+        font-size: clamp(62px, 14vw, 88px);
+    }
+    .listening-room-top,
+    .listening-room-bottom {
+        left: 7%;
+        right: 7%;
+        font-size: 7px;
+        letter-spacing: 0.08em;
+    }
+    .listening-room-top > span:last-child {
+        display: none;
+    }
+    .sound-finder {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+    .sound-finder-note {
+        display: none;
+    }
+    .sound-finder h2 {
+        font-size: 64px;
+    }
+    .sound-choice {
+        grid-template-columns: 16px minmax(0, 1fr) 85px;
+        gap: 12px;
+    }
+    .sound-choice h3 {
+        font-size: 18px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .sound-choice img {
+        transition: none;
+    }
+}

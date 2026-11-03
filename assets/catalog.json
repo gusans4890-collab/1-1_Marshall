@@ -1,0 +1,218 @@
+[
+  {
+    "slug": "major-v",
+    "name": "Major V",
+    "category": "headphones",
+    "kind": "ON-EAR",
+    "image": "major.jpg",
+    "note": "가볍게 접어, 매일의 가방에.",
+    "line": "A daily<br><em>companion.</em>"
+  },
+  {
+    "slug": "monitor-iii-anc",
+    "name": "Monitor III ANC",
+    "category": "headphones",
+    "kind": "OVER-EAR / ANC",
+    "image": "monitor-iii.jpg",
+    "detail": "monitor-detail.jpg",
+    "note": "주변의 소음에서 한 걸음 멀리.",
+    "line": "A world<br><em>of your own.</em>",
+    "intro": "오버이어 실루엣에 담긴 몰입. 노이즈 캔슬링으로 음악을 위한 개인적인 공간을 만듭니다.",
+    "feature": "The art of<br><em>listening.</em>",
+    "story": "귀를 감싸는 이어컵과 부드러운 헤드밴드. 바쁜 공간에서도 편안하게 음악을 듣고 싶은 순간을 위한 헤드폰입니다.",
+    "facts": [
+      [
+        "FORMAT",
+        "오버이어 헤드폰"
+      ],
+      [
+        "LISTENING",
+        "액티브 노이즈 캔슬링"
+      ],
+      [
+        "FINISH",
+        "Black & Brass"
+      ]
+    ],
+    "details": [
+      [
+        "음악에 집중하는 방식",
+        "액티브 노이즈 캔슬링을 지원합니다. 제품의 조작과 기능 설정은 공식 설명서에서 확인하세요."
+      ],
+      [
+        "디자인",
+        "질감 있는 외장과 골드 톤 로고, 귀를 감싸는 구조가 차분한 인상을 만듭니다."
+      ]
+    ],
+    "url": "https://www.marshall.com/us/en/product/monitor-iii-anc?pid=1006861"
+  },
+  {
+    "slug": "minor-iv",
+    "name": "Minor IV",
+    "category": "earbuds",
+    "kind": "TRUE WIRELESS",
+    "image": "minor.jpg",
+    "note": "작은 케이스로 간결해지는 하루.",
+    "line": "Carry<br><em>less.</em>"
+  },
+  {
+    "slug": "stanmore-iii",
+    "name": "Stanmore III",
+    "category": "speakers",
+    "kind": "HOME AUDIO",
+    "image": "stanmore.jpg",
+    "note": "일상의 공간에 자연스럽게 놓이는 소리.",
+    "line": "At home<br><em>with sound.</em>"
+  },
+  {
+    "slug": "woburn-iii",
+    "name": "Woburn III",
+    "category": "speakers",
+    "kind": "HOME AUDIO",
+    "image": "woburn-iii.jpg",
+    "note": "공간의 중심을 만드는 존재감.",
+    "line": "Room<br><em>to resonate.</em>",
+    "intro": "넉넉한 비례와 클래식한 전면 디자인. 거실의 한편에서 음악을 듣는 자리를 새롭게 정리합니다.",
+    "feature": "A statement<br><em>in the room.</em>",
+    "story": "길게 이어지는 그릴과 골드 톤 디테일. Woburn III는 오브제처럼 놓이면서도 시선과 청취의 중심이 되는 홈 스피커입니다.",
+    "facts": [
+      [
+        "FORMAT",
+        "홈 스피커"
+      ],
+      [
+        "DESIGN",
+        "클래식 캐비닛"
+      ],
+      [
+        "FINISH",
+        "Black"
+      ]
+    ],
+    "details": [
+      [
+        "공간에서의 비례",
+        "마샬 홈 스피커 컬렉션에서 큰 실루엣을 지닌 모델입니다. 설치 공간과 제품 크기는 공식 사양에서 확인하세요."
+      ],
+      [
+        "마감",
+        "텍스처가 있는 캐비닛과 전면 그릴, 로고의 대비가 디자인을 완성합니다."
+      ]
+    ],
+    "url": "https://www.marshall.com/us/en/product/woburn-iii?pid=1006020"
+  },
+  {
+    "slug": "emberton-iii",
+    "name": "Emberton III",
+    "category": "portable",
+    "kind": "COMPACT PORTABLE",
+    "image": "emberton-iii.jpg",
+    "detail": "emberton-life.jpg",
+    "note": "손에 담기는 크기, 바깥으로 이어지는 음악.",
+    "line": "Out of<br><em>the ordinary.</em>",
+    "intro": "작고 단단한 형태, 이동에 익숙한 디자인. 책상 위에서 들었던 음악을 다음 목적지까지 가져갑니다.",
+    "feature": "Made for<br><em>the detour.</em>",
+    "story": "가볍게 짐을 꾸리는 날을 위한 포터블 스피커. 산책이나 짧은 여행처럼, 음악을 듣는 장소를 한곳으로 정하지 않아도 됩니다.",
+    "facts": [
+      [
+        "PLAYTIME",
+        "32+ hours"
+      ],
+      [
+        "PROTECTION",
+        "IP67"
+      ],
+      [
+        "SOUND",
+        "360° 사운드"
+      ]
+    ],
+    "details": [
+      [
+        "재생 시간",
+        "공식 안내 기준 32시간 이상의 휴대 재생을 지원합니다. 실제 재생 시간은 볼륨과 사용 환경에 따라 달라집니다."
+      ],
+      [
+        "야외에서의 사용",
+        "IP67 방진·방수 등급을 갖췄습니다. 물에 관한 사용 조건과 관리 방법은 공식 설명서를 확인하세요."
+      ]
+    ],
+    "url": "https://www.marshall.com/us/en/product/emberton-iii?pid=1006884"
+  },
+  {
+    "slug": "middleton-ii",
+    "name": "Middleton II",
+    "category": "portable",
+    "kind": "ALL-ROUND PORTABLE",
+    "image": "middleton-ii.jpg",
+    "detail": "middleton-life.jpg",
+    "note": "하루의 동선을 따라 움직이는 스피커.",
+    "line": "Take the<br><em>long way.</em>",
+    "intro": "손잡이를 잡고 출발하는 하루. 이동하기 좋은 형태에 긴 재생 시간과 직관적인 컨트롤을 담았습니다.",
+    "feature": "Between<br><em>destinations.</em>",
+    "story": "위쪽 패널의 노브를 돌려 소리를 조절하고, 스트랩을 잡아 다음 장소로 옮깁니다. 듣는 자리와 움직이는 시간이 자연스럽게 이어집니다.",
+    "facts": [
+      [
+        "PLAYTIME",
+        "30+ hours"
+      ],
+      [
+        "PROTECTION",
+        "IP67"
+      ],
+      [
+        "CONTROL",
+        "멀티 디렉션 노브"
+      ]
+    ],
+    "details": [
+      [
+        "이동 중에도",
+        "공식 안내 기준 30시간 이상의 휴대 재생을 지원하며, 실제 시간은 설정과 사용 환경에 따라 달라집니다."
+      ],
+      [
+        "연결과 조작",
+        "상단의 컨트롤과 마샬 블루투스 앱을 통해 제품을 조작할 수 있습니다. 지원 기능은 공식 제품 안내를 확인하세요."
+      ]
+    ],
+    "url": "https://www.marshall.com/us/en/product/middleton-ii?pid=1009644"
+  },
+  {
+    "slug": "kilburn-iii",
+    "name": "Kilburn III",
+    "category": "portable",
+    "kind": "PORTABLE / HANDLE",
+    "image": "kilburn-iii.jpg",
+    "detail": "kilburn-life.jpg",
+    "note": "오래 머무는 날을 위한, 더 긴 플레이리스트.",
+    "line": "Stay a<br><em>little longer.</em>",
+    "intro": "클래식한 캐비닛과 아치형 핸들. 익숙한 마샬의 형태를 들고 다닐 수 있는 크기로 만납니다.",
+    "feature": "Unhurried<br><em>afternoons.</em>",
+    "story": "손끝으로 돌리는 볼륨·베이스·트레블 컨트롤과 넉넉한 재생 시간. 서둘러 자리를 뜨지 않아도 되는 오후에 어울립니다.",
+    "facts": [
+      [
+        "PLAYTIME",
+        "50+ hours"
+      ],
+      [
+        "PROTECTION",
+        "IP54"
+      ],
+      [
+        "CONTROL",
+        "물리식 사운드 컨트롤"
+      ]
+    ],
+    "details": [
+      [
+        "오래 듣는 음악",
+        "공식 안내 기준 50시간 이상의 휴대 재생을 지원합니다. 실제 시간은 볼륨과 설정에 따라 달라집니다."
+      ],
+      [
+        "손끝에서 조절하기",
+        "상단 컨트롤로 볼륨과 사운드를 조절합니다. 휴대를 위한 핸들이 클래식한 실루엣을 이어갑니다."
+      ]
+    ],
+    "url": "https://www.marshall.com/us/en/product/kilburn-iii?pid=1007443"
+  }
+]

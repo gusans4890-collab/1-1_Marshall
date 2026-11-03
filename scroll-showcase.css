@@ -1,0 +1,284 @@
+/* Original compositions, driven by vertical scroll. */
+.editorial-home .opening {
+    height: 100svh;
+    min-height: 0;
+}
+.opening-scene.is-scroll-driven {
+    position: relative;
+    height: 370svh;
+}
+.opening-scene.is-scroll-driven .opening {
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+.selection-stage {
+    position: relative;
+}
+.selection.has-product-scroll {
+    overflow: clip;
+    height: var(--selection-scene-height);
+}
+.selection.has-product-scroll .selection-stage {
+    position: sticky;
+    top: 90px;
+}
+.editorial-home main > section {
+    isolation: isolate;
+}
+.selection-stage {
+    background: #e8e4dc;
+}
+.opening-scroll img,
+.selection-scroll img {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+.selection-track {
+    position: relative;
+    isolation: isolate;
+}
+.selection-scroll .selection-slide {
+    position: relative;
+    flex-shrink: 0;
+    transform: none;
+}
+.selection-scroll .selection-slide > a {
+    display: block;
+}
+.selection-stage .editorial-heading {
+    margin-bottom: 30px;
+}
+.selection-stage .editorial-heading h2 {
+    font-size: clamp(54px, 6vw, 88px);
+    margin-top: 16px;
+}
+.selection-stage .selection-scroll .selection-slide h3 {
+    font-size: 34px;
+}
+.selection-stage .selection-meta {
+    margin-top: 16px;
+}
+.craft-notes {
+    background: #e8e4dc;
+    color: #242721;
+}
+.craft-notes .kicker {
+    color: #76674e;
+}
+.craft-notes .editorial-heading > p {
+    font-size: 12px;
+    line-height: 2;
+    color: #777a6d;
+}
+.craft-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+}
+.craft-card > div {
+    overflow: hidden;
+    aspect-ratio: 1.25;
+}
+.craft-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.craft-card small {
+    display: block;
+    margin: 22px 0 16px;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: #76674e;
+}
+.craft-card h3 {
+    font: 24px var(--sans);
+    letter-spacing: -0.04em;
+}
+.craft-card p {
+    font-size: 12px;
+    line-height: 1.9;
+    color: #777a6d;
+    margin: 16px 0;
+}
+.craft-card > span {
+    font-size: 10px;
+    display: inline-block;
+    border-bottom: 1px solid #777a6d;
+    padding-bottom: 8px;
+}
+@media (min-width: 701px) {
+    .editorial-home .material-image {
+        height: calc(100svh - 85px);
+        min-height: 550px;
+    }
+    .editorial-home .material-copy {
+        padding: 40px 12%;
+    }
+}
+.opening-scroll {
+    width: 59%;
+    height: 100%;
+    margin-left: auto;
+    overflow-x: auto;
+}
+.opening-track {
+    display: flex;
+    height: 100%;
+    position: relative;
+}
+.opening-scroll .opening-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+.opening.is-scroll-driven .opening-scroll {
+    overflow: hidden;
+}
+.opening.is-scroll-driven .opening-track {
+    display: block;
+}
+.opening.is-scroll-driven .opening-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+}
+.opening.is-scroll-driven .opening-slide:not(:first-child) {
+    visibility: hidden;
+}
+.opening-scroll .opening-photo img {
+    transition: none;
+}
+.editorial-home .opening-controls,
+.editorial-home .selection-controls {
+    display: none;
+}
+.selection-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    width: 100%;
+}
+.selection-scroll.is-scroll-driven {
+    overflow: hidden;
+}
+.selection-scroll a:focus-visible {
+    outline: 2px solid #76674e;
+    outline-offset: -3px;
+}
+.selection-track {
+    display: flex;
+    gap: clamp(22px, 3.5vw, 50px);
+    width: 100%;
+    align-items: start;
+}
+.selection-scroll .selection-slide {
+    flex: 0 0 42%;
+    width: 42%;
+    min-width: 0;
+    height: auto;
+    margin: 0;
+}
+.selection-scroll .selection-slide:last-child {
+    margin: 0;
+}
+.selection-scroll .selection-image {
+    aspect-ratio: 4 / 3;
+    height: auto;
+    max-height: none;
+}
+.selection-scroll .selection-image img {
+    transition: none;
+}
+.selection-scroll .selection-slide a:hover img {
+    transform: none;
+}
+.selection-scroll .selection-slide h3 {
+    font-size: 42px;
+}
+.scroll-product-progress {
+    height: 1px;
+    margin-top: 28px;
+    background: #bbbdb3;
+}
+.scroll-product-progress i {
+    display: block;
+    height: 100%;
+    background: #30352d;
+    transform: scaleX(var(--product-progress, 0));
+    transform-origin: left;
+}
+@view-transition {
+    navigation: auto;
+}
+::view-transition-old(root) {
+    animation: page-out 0.28s ease-in both;
+}
+::view-transition-new(root) {
+    animation: page-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes page-out {
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+@keyframes page-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+}
+@media (max-width: 700px) {
+    .selection-stage .editorial-heading {
+        margin-bottom: 20px;
+    }
+    .selection-stage .editorial-heading h2 {
+        font-size: 48px;
+    }
+    .selection-stage .selection-aside p {
+        display: none;
+    }
+    .craft-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+    .opening-scroll {
+        position: absolute;
+        top: 28%;
+        right: 0;
+        width: 85%;
+        height: 72%;
+    }
+    .selection-track {
+        gap: 22px;
+    }
+    .selection-scroll .selection-slide {
+        flex-basis: 82%;
+        width: 82%;
+    }
+    .selection-scroll .selection-slide h3 {
+        font-size: 34px;
+    }
+}
+@media (max-height: 650px) {
+    .editorial-home .opening-heading {
+        top: 15%;
+    }
+    .editorial-home .opening-heading h1 {
+        font-size: clamp(58px, 9vw, 100px);
+        margin: 20px 0;
+    }
+    .editorial-home .opening-caption {
+        bottom: 12%;
+    }
+    .editorial-home .opening-caption h2 {
+        font-size: 34px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+    }
+}

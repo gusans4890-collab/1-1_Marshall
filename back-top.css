@@ -1,0 +1,41 @@
+.back-top-dock {
+    height: 0;
+}
+.back-top-dock .back-top {
+    position: fixed;
+    right: 8%;
+    bottom: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(18px);
+    pointer-events: none;
+    transition:
+        opacity 0.4s ease,
+        transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+        visibility 0.4s;
+}
+.back-top-dock .back-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.back-top-dock .back-top.is-visible:hover {
+    transform: translateY(-4px);
+}
+.back-top-dock .back-top:focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 4px;
+}
+@media (max-width: 700px) {
+    .back-top-dock .back-top {
+        right: 6%;
+        bottom: 18px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .back-top-dock .back-top {
+        transition: none;
+        transform: none;
+    }
+}

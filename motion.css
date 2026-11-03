@@ -1,0 +1,165 @@
+/* Motion is layered onto the existing composition; no new content or sections. */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+html.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+.flow-image-frame {
+    overflow: hidden;
+}
+.flow-image-layer {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+}
+.flow-image-layer > img {
+    display: block;
+}
+.category-edit nav a {
+    position: relative;
+}
+.category-edit nav a .flow-rule {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #d2c3aa;
+    transform-origin: left center;
+    pointer-events: none;
+}
+.category-edit.flow-lines-active nav a {
+    border-bottom-color: transparent;
+}
+.category-edit.flow-lines-active nav a .flow-rule {
+    height: 1px;
+    background: #d2c3aa;
+}
+.flow-pointer {
+    position: fixed;
+    inset: 0;
+    z-index: 140;
+    pointer-events: none;
+    color: #f3eee4;
+    mix-blend-mode: difference;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    user-select: none;
+}
+.flow-pointer.is-visible {
+    opacity: 1;
+}
+.flow-pointer-dot {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    transition: opacity 0.2s;
+}
+.flow-pointer-trail {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+}
+.flow-pointer-outline {
+    position: absolute;
+    left: -18px;
+    top: -18px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #f3eee480;
+    border-radius: 50%;
+    transition:
+        transform 0.4s cubic-bezier(0.2, 0.7, 0.3, 1),
+        background 0.3s,
+        border-color 0.3s;
+}
+.flow-pointer-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    font: 8px var(--sans, sans-serif);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+}
+.flow-pointer[data-mode="link"] .flow-pointer-outline {
+    transform: scale(1.5);
+    background: #f3eee414;
+    border-color: #f3eee4a0;
+}
+.flow-pointer[data-mode="drag"] .flow-pointer-outline,
+.flow-pointer[data-mode="action"] .flow-pointer-outline {
+    transform: scale(2);
+    border-color: #f3eee4a0;
+    background: #f3eee40b;
+}
+.flow-pointer[data-mode="drag"] .flow-pointer-label,
+.flow-pointer[data-mode="action"] .flow-pointer-label {
+    opacity: 1;
+}
+.flow-pointer[data-mode="drag"] .flow-pointer-dot,
+.flow-pointer[data-mode="action"] .flow-pointer-dot {
+    opacity: 0;
+}
+.flow-pointer.is-pressed .flow-pointer-outline {
+    transform: scale(0.8);
+}
+.flow-pointer.is-pressed[data-mode="drag"] .flow-pointer-outline,
+.flow-pointer.is-pressed[data-mode="action"] .flow-pointer-outline {
+    transform: scale(1.7);
+}
+.flow-pointer.is-pressed[data-mode="link"] .flow-pointer-outline {
+    transform: scale(1.2);
+}
+.slider-arrows button {
+    will-change: transform;
+}
+.opening-photo {
+    transform-origin: center;
+}
+.motion-paused .flow-pointer {
+    display: none;
+}
+@media (min-width: 701px) and (hover: hover) and (pointer: fine) {
+    body.cursor-enabled,
+    body.cursor-enabled a,
+    body.cursor-enabled button,
+    body.cursor-enabled summary,
+    body.cursor-enabled .swiper,
+    body.cursor-enabled .swiper * {
+        cursor: none !important;
+    }
+    body.cursor-enabled input,
+    body.cursor-enabled textarea,
+    body.cursor-enabled [contenteditable="true"] {
+        cursor: text !important;
+    }
+}
+@media (max-width: 700px), (hover: none), (pointer: coarse) {
+    .flow-pointer {
+        display: none;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .flow-pointer {
+        display: none;
+    }
+    .flow-image-layer {
+        transform: none !important;
+    }
+}

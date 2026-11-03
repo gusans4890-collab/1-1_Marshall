@@ -1,0 +1,245 @@
+.cinema {
+    position: relative;
+    height: 180svh;
+    background: #111;
+    color: #f2eee5;
+}
+html.entry-locked,
+body.entry-locked {
+    overflow: hidden !important;
+    overscroll-behavior: none;
+}
+html:has(body.editorial-home) {
+    scrollbar-gutter: stable;
+}
+body.entry-locked {
+    user-select: none;
+}
+.cinema-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    min-height: 560px;
+    overflow: hidden;
+    isolation: isolate;
+}
+.cinema-poster,
+.cinema-film,
+.cinema-shade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+.cinema-poster {
+    object-fit: cover;
+    filter: brightness(0.52);
+    transform: scale(1.08);
+    animation: cinema-drift 18s ease-out both;
+}
+.cinema-film {
+    opacity: 0;
+    transition: opacity 1.2s 0.5s;
+    pointer-events: none;
+}
+.cinema.is-playing .cinema-film {
+    opacity: 1;
+}
+/* Fill at 16:9, keeping the lower 20% subtitle band outside the hero. */
+.cinema-film iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: max(100%, 222.223svh, 1244.445px);
+    height: max(125svh, 56.25vw, 700px);
+    transform: translateX(-50%);
+    border: 0;
+}
+.cinema-shade {
+    background: linear-gradient(180deg, #0007, transparent 35%, #0009);
+}
+.cinema-copy {
+    position: absolute;
+    top: 50%;
+    left: 6%;
+    right: 6%;
+    transform: translateY(-43%);
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 0.35s,
+        visibility 0s;
+}
+.cinema.is-playing .cinema-copy {
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.35s,
+        visibility 0s 0.35s;
+}
+.cinema-eyebrow {
+    font: 10px var(--sans);
+    letter-spacing: 0.22em;
+    display: block;
+    margin-bottom: 30px;
+}
+.cinema h2 {
+    font-size: clamp(72px, 10vw, 152px);
+    line-height: 0.98;
+    margin: 0;
+    letter-spacing: -0.045em;
+}
+.cinema-line {
+    display: block;
+    overflow: hidden;
+    padding: 0.04em 0 0.14em;
+}
+.cinema-line > span {
+    display: block;
+    animation: cinema-rise 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.cinema-line:nth-child(2) > span {
+    animation-delay: 0.22s;
+}
+.cinema-copy p {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    margin-top: 24px;
+    animation: cinema-rise 1.5s 0.45s both;
+}
+.cinema-bottom {
+    position: absolute;
+    bottom: 35px;
+    left: 6%;
+    right: 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+}
+.cinema-explore {
+    color: inherit;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.cinema-explore span {
+    display: grid;
+    place-items: center;
+    border: 1px solid #fff7;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+}
+.cinema-controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+.cinema-controls button,
+.cinema-controls a {
+    font: 10px var(--sans);
+    letter-spacing: 0.08em;
+    color: inherit;
+    background: #14141470;
+    border: 1px solid #fff6;
+    border-radius: 30px;
+    padding: 12px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+}
+.cinema :focus-visible {
+    outline: 2px solid #e2c498;
+    outline-offset: 5px;
+}
+.cinema-status {
+    position: absolute;
+    top: 110px;
+    right: 6%;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+}
+.cinema-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffffff25;
+}
+.cinema-progress i {
+    display: block;
+    height: 100%;
+    background: #d7bea0;
+    transform: scaleX(var(--cinema-progress, 0));
+    transform-origin: left;
+}
+@keyframes cinema-rise {
+    from {
+        transform: translateY(115%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes cinema-drift {
+    to {
+        transform: scale(1);
+    }
+}
+@media (max-width: 700px) {
+    .cinema-stage {
+        min-height: 520px;
+    }
+    .cinema-copy {
+        left: 7%;
+        right: 7%;
+        top: 44%;
+    }
+    .cinema h2 {
+        font-size: clamp(54px, 14vw, 96px);
+    }
+    .cinema-copy p {
+        max-width: 240px;
+        line-height: 1.8;
+    }
+    .cinema-bottom {
+        left: 7%;
+        right: 7%;
+        align-items: start;
+        flex-direction: column;
+    }
+    .cinema-controls {
+        justify-content: start;
+    }
+    .cinema-status {
+        top: 95px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .cinema {
+        height: 100svh;
+    }
+    .cinema-line > span,
+    .cinema-copy p,
+    .cinema-poster {
+        animation: none;
+    }
+    .cinema-film {
+        transition: none;
+    }
+}
+@media (max-width: 700px) {
+    .cinema-film iframe {
+        width: max(100%, 222.223svh, 1155.556px);
+        height: max(125svh, 56.25vw, 650px);
+    }
+}

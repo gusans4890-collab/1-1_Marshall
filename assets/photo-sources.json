@@ -1,0 +1,121 @@
+[
+  {
+    "assets": [
+      {
+        "contentType": "image/avif",
+        "id": "3bc05603836a6861",
+        "kind": "image",
+        "name": "Header_mobile.jpeg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/09e835f1-0761-49cf-8551-301bd213d942/3bc05603836a6861.jpeg",
+        "url": "https://images.ctfassets.net/javen7msabdh/3KpR69tGO5YlW4gnsgT6OW/6b973f14183a03d85b43593a106a90e7/Header_mobile.jpeg?w=1440&fm=avif&q=100"
+      },
+      {
+        "contentType": "image/jpeg",
+        "id": "f635eddb10ad82e1",
+        "kind": "image",
+        "name": "major-v-black-front-desktop-1.jpeg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/09e835f1-0761-49cf-8551-301bd213d942/f635eddb10ad82e1.jpeg",
+        "url": "https://images.ctfassets.net/javen7msabdh/4mfBJMWEJHwPaYPvR3wh2w/1552b5ec82d9c91eb481918f068ba98f/major-v-black-front-desktop-1.jpeg?w=1200&fm=jpg&q=85"
+      },
+      {
+        "contentType": "image/jpeg",
+        "id": "ae96877d62e7f106",
+        "kind": "image",
+        "name": "major-v-black-hover.jpg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/09e835f1-0761-49cf-8551-301bd213d942/ae96877d62e7f106.jpg",
+        "url": "https://images.ctfassets.net/javen7msabdh/4yOdtzGDrxD4Cb1LLTTy6o/ce9f568e84ee987fac698fd1c55a2b5f/major-v-black-hover.jpg?w=1200&fm=jpg&q=85"
+      },
+      {
+        "contentType": "image/jpeg",
+        "id": "960ad1de27586c48",
+        "kind": "image",
+        "name": "minor-iv-black-front-desktop-1.jpeg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/09e835f1-0761-49cf-8551-301bd213d942/960ad1de27586c48.jpeg",
+        "url": "https://images.ctfassets.net/javen7msabdh/6fqdu1dpw5Ay2BSiuiXROI/9c853369f11aa67a8d89d20b08cab9bd/minor-iv-black-front-desktop-1.jpeg?w=1200&fm=jpg&q=85"
+      },
+      {
+        "contentType": "image/avif",
+        "id": "fd79a7a779d5351e",
+        "kind": "image",
+        "name": "amps_mobile.jpeg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/09e835f1-0761-49cf-8551-301bd213d942/fd79a7a779d5351e.jpeg",
+        "url": "https://images.ctfassets.net/javen7msabdh/2EOzvwS1PjTthr1raecn2Y/4650c6cc9f7b57cf601a3bf80701173c/amps_mobile.jpeg?w=1500&fm=avif&q=100"
+      },
+      {
+        "contentType": "image/avif",
+        "id": "0296d7c1fad08a34",
+        "kind": "image",
+        "name": "speakers_mobile.jpeg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/09e835f1-0761-49cf-8551-301bd213d942/0296d7c1fad08a34.jpeg",
+        "url": "https://images.ctfassets.net/javen7msabdh/2lTPkx8HWCGe7Gb2Lkist6/0d12e961878a7cdd2dd937ac02ebf082/speakers_mobile.jpeg?w=1500&fm=avif&q=100"
+      }
+    ],
+    "failures": []
+  },
+  {
+    "assets": [
+      {
+        "contentType": "image/avif",
+        "id": "8af49a18e76b48b2",
+        "kind": "image",
+        "name": "stanmore_iii-front-mobile-1.jpeg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/9d7cf708-6d4f-47bb-afeb-cf911e7f0c4e/8af49a18e76b48b2.jpeg",
+        "url": "https://images.ctfassets.net/javen7msabdh/2gjMuZQzWqUdnnPY6iEVba/94dced727f75a311ce4fb5429699ad9b/stanmore_iii-front-mobile-1.jpeg?w=1440&fm=avif&q=100"
+      },
+      {
+        "contentType": "image/avif",
+        "id": "9354d228cc144a5b",
+        "kind": "image",
+        "name": "stanmore_iii-above-mobile-3.jpeg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/9d7cf708-6d4f-47bb-afeb-cf911e7f0c4e/9354d228cc144a5b.jpeg",
+        "url": "https://images.ctfassets.net/javen7msabdh/9ASK09JP6519IyCARS59H/f0e52e083fab342ea690789c9b8174de/stanmore_iii-above-mobile-3.jpeg?w=768&fm=avif&q=100"
+      },
+      {
+        "contentType": "image/avif",
+        "id": "72b66efddc60e2ca",
+        "kind": "image",
+        "name": "stanmore_iii-zoom-mobile-4.jpeg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/9d7cf708-6d4f-47bb-afeb-cf911e7f0c4e/72b66efddc60e2ca.jpeg",
+        "url": "https://images.ctfassets.net/javen7msabdh/ZxJ5BB0NkA5XeCdiMKEq3/cf823a6a6876a29f9e30499c989f672e/stanmore_iii-zoom-mobile-4.jpeg?w=768&fm=avif&q=100"
+      },
+      {
+        "contentType": "image/avif",
+        "id": "a225b7aca5eb6b14",
+        "kind": "image",
+        "name": "stanmore_iii-lifestyle-mobile-2.jpeg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/9d7cf708-6d4f-47bb-afeb-cf911e7f0c4e/a225b7aca5eb6b14.jpeg",
+        "url": "https://images.ctfassets.net/javen7msabdh/HD26P23QPaw1mrdAqIG9X/fd18af6943430bebfa8acd528fcb5a44/stanmore_iii-lifestyle-mobile-2.jpeg?w=768&fm=avif&q=100"
+      }
+    ],
+    "failures": []
+  },
+  {
+    "assets": [
+      {
+        "contentType": "image/avif",
+        "id": "32bf229c53e73ff7",
+        "kind": "image",
+        "name": "03._Old_Blue_Last.jpg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/a9ea6e3f-f012-4ef9-9925-81ee963c769b/32bf229c53e73ff7.jpg",
+        "url": "https://images.ctfassets.net/javen7msabdh/7IpaAqKTm3EXdyzoi5Gvak/a0e839fa824408f66b7e9cdf07552569/03._Old_Blue_Last.jpg?w=425&fm=avif&q=100"
+      },
+      {
+        "contentType": "image/avif",
+        "id": "605396fcfb5704ce",
+        "kind": "image",
+        "name": "04._Badehaus.jpg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/a9ea6e3f-f012-4ef9-9925-81ee963c769b/605396fcfb5704ce.jpg",
+        "url": "https://images.ctfassets.net/javen7msabdh/5e6iBVfd7PqdipF5kRrq2X/5f342c3eac14b64257f82086d90f0afb/04._Badehaus.jpg?w=425&fm=avif&q=100"
+      },
+      {
+        "contentType": "image/avif",
+        "id": "74abebf23b4f59a5",
+        "kind": "image",
+        "name": "02._Fryshuset.jpg",
+        "path": "C:\\Users\\M\\AppData\\Local\\Packages\\sandbox.{0b3d750b-2388-4301-a59c-568ba2bbe055}\\AC\\Temp/browser-use/assets/a9ea6e3f-f012-4ef9-9925-81ee963c769b/74abebf23b4f59a5.jpg",
+        "url": "https://images.ctfassets.net/javen7msabdh/6N8VYCNxS67eFz07uRjgZd/3381d095a9697acf5883adc04ff46b17/02._Fryshuset.jpg?w=425&fm=avif&q=100"
+      }
+    ],
+    "failures": []
+  }
+]

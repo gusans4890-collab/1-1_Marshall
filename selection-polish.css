@@ -1,0 +1,172 @@
+.selection-stage {
+    --selection-progress: 0;
+}
+.selection-stage .selection-scroll .selection-image {
+    max-height: max(150px, calc(100svh - 390px));
+}
+.selection-stage .editorial-heading h2 {
+    font-size: clamp(48px, 8svh, 88px);
+}
+.selection-stage .editorial-heading {
+    border-top: 1px solid #b3ab9b;
+    padding-top: 18px;
+}
+.selection-stage .editorial-heading .kicker {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+}
+.selection-stage .editorial-heading h2 {
+    letter-spacing: -0.055em;
+}
+.selection-stage .editorial-heading h2 em {
+    color: #71634e;
+}
+.selection-stage .editorial-heading h2 em {
+    position: relative;
+    display: inline-block;
+}
+.selection-stage .editorial-heading h2 em::after {
+    content: "";
+    position: absolute;
+    bottom: -0.07em;
+    left: 0.02em;
+    right: 0;
+    height: 1px;
+    background: #8d7c60;
+    transform-origin: left;
+    transform: scaleX(var(--selection-title-line, 1));
+}
+.selection-track {
+    counter-reset: selected-object;
+}
+.selection-track .selection-slide {
+    counter-increment: selected-object;
+}
+.selection-stage .selection-image {
+    border: 1px solid #ffffff30;
+}
+.selection-stage .selection-image::before {
+    content: "0" counter(selected-object);
+    position: absolute;
+    z-index: 2;
+    top: 17px;
+    left: 19px;
+    color: #e7ded0;
+    font: italic 38px var(--serif);
+    letter-spacing: -0.06em;
+    opacity: 0.62;
+    pointer-events: none;
+}
+.selection-stage .selection-image > .flow-image-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+.selection-stage .selection-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.selection-stage .selection-view {
+    left: auto;
+    right: 18px;
+    bottom: 18px;
+    font-size: 8px;
+    padding: 11px 14px;
+    border: 1px solid #ffffff55;
+    background: #171b1766;
+    backdrop-filter: blur(8px);
+}
+.selection-stage .selection-meta {
+    border-top: 1px solid #b9b2a4;
+    padding-top: 13px;
+    margin-bottom: 9px;
+    color: #797366;
+}
+.selection-stage .selection-scroll .selection-slide h3 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    font-size: clamp(30px, 3vw, 45px);
+    letter-spacing: -0.035em;
+}
+.selection-stage .selection-slide h3::after {
+    content: "↗";
+    font: 20px var(--sans);
+    color: #81725c;
+    transition: translate 0.35s;
+}
+.selection-stage .selection-slide a:hover h3::after {
+    translate: 3px -3px;
+}
+.selection-stage .selection-slide p {
+    margin-top: 7px;
+    color: #7a786d;
+}
+.selection-stage .selection-slide.is-current .selection-meta {
+    border-top-color: #73634b;
+}
+.selection-folio {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-top: 25px;
+    padding-top: 2px;
+    font: 8px var(--sans);
+    letter-spacing: 0.12em;
+    color: #7d7668;
+}
+.selection-folio-line {
+    flex: 1;
+    height: 1px;
+    background: #c4bdaf;
+}
+.selection-folio-line i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(calc(0.08 + var(--selection-progress) * 0.92));
+    transform-origin: left;
+    background: #73634b;
+}
+.selection-folio-count {
+    min-width: 48px;
+    color: #373c31;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    letter-spacing: 0.04em;
+}
+.selection-folio-count small {
+    color: #8d8679;
+    font-size: 9px;
+}
+@media (max-width: 700px) {
+    .selection-stage .editorial-heading {
+        padding-top: 12px;
+    }
+    .selection-stage .selection-scroll .selection-slide h3 {
+        font-size: 30px;
+    }
+    .selection-stage .selection-image::before {
+        font-size: 30px;
+        top: 12px;
+        left: 14px;
+    }
+    .selection-folio {
+        gap: 14px;
+        margin-top: 20px;
+        font-size: 7px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .selection-stage .selection-slide h3::after {
+        transition: none;
+    }
+    .selection-folio {
+        display: none;
+    }
+}

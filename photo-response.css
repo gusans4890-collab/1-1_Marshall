@@ -1,0 +1,76 @@
+/* Individual transforms compose with GSAP's transform without overwriting it. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .photo-response {
+        position: relative;
+        translate: 0 0;
+        rotate: 0deg;
+        scale: 1;
+        transition:
+            translate 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+            rotate 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+            scale 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .photo-response.photo-engaged {
+        translate: var(--photo-x, 0px) var(--photo-y, 0px);
+        rotate: var(--photo-axis-x, 0) var(--photo-axis-y, 1) 0 var(--photo-angle, 0deg);
+        scale: 1.012;
+    }
+    .photo-response::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at var(--photo-light-x, 50%) var(--photo-light-y, 50%),
+            #fff1,
+            transparent 65%
+        );
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.45s;
+    }
+    .photo-response.photo-engaged::after {
+        opacity: 1;
+    }
+}
+.product-hero-scene.is-held {
+    height: 145svh;
+    position: relative;
+}
+.product-hero-scene.is-held .product-hero {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    min-height: 0;
+    padding: 125px 8% 65px;
+}
+.product-hero-scene.is-held .product-visual > img {
+    height: 58svh;
+}
+.product-hero-scene.is-held .product-intro h1 {
+    font-size: clamp(52px, 5.7vw, 88px);
+    margin: 26px 0;
+}
+.product-hero-scene.is-held .product-intro h2 {
+    font-size: clamp(34px, 3.5vw, 54px);
+}
+@media (max-width: 700px) {
+    .product-hero-scene .product-hero {
+        min-height: 0;
+        padding: 110px 6% 45px;
+        gap: 24px;
+    }
+    .product-hero-scene .product-intro h1 {
+        font-size: clamp(36px, 9.5vw, 54px);
+        margin: 18px 0;
+    }
+    .product-hero-scene .product-intro h2 {
+        font-size: 30px;
+        line-height: 1.05;
+    }
+    .product-hero-scene .product-intro p {
+        line-height: 1.8;
+    }
+    .product-hero-scene .product-visual > img {
+        height: min(32svh, 300px);
+    }
+}

@@ -1,0 +1,216 @@
+/* Responsive adjustments apply only to tablet and mobile. Desktop keeps its prior layout. */
+@media (max-width: 1000px) {
+    /* Keep the complete 16:9 film inside the available screen area. */
+    .cinema-stage {
+        min-height: 0;
+        background: #111411;
+    }
+    .cinema-film {
+        inset: auto;
+        top: 50%;
+        left: 50%;
+        width: min(100%, calc((100svh - 180px) * 16 / 9));
+        height: auto;
+        aspect-ratio: 16 / 9;
+        transform: translate(-50%, -50%);
+    }
+    .cinema-film iframe {
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+    }
+    .cinema.is-playing .cinema-shade {
+        background: linear-gradient(180deg, #0004, transparent 20%, transparent 80%, #0004);
+    }
+    .cinema-bottom {
+        bottom: max(24px, env(safe-area-inset-bottom));
+    }
+    .cinema-controls button,
+    .cinema-controls a {
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .editorial-home .opening-heading {
+        left: 6%;
+        max-width: 43%;
+    }
+    .editorial-home .opening-heading h1 {
+        font-size: clamp(64px, 7.8vw, 120px);
+        line-height: 0.98;
+        letter-spacing: -0.05em;
+        margin: 26px 0;
+    }
+    .opening-scroll .opening-caption {
+        left: 16%;
+        right: 10%;
+    }
+    .opening-scroll .opening-caption h2 {
+        font-size: clamp(32px, 3.7vw, 58px);
+        line-height: 1.1;
+    }
+    .opening-scroll .opening-caption h2 a {
+        align-items: start;
+    }
+    .opening-scroll .opening-caption h2 b {
+        flex-shrink: 0;
+    }
+    .selection-stage .editorial-heading {
+        align-items: end;
+        gap: 28px;
+    }
+    .selection-stage .selection-aside {
+        flex-shrink: 0;
+    }
+    .selection-stage .selection-scroll .selection-slide h3 {
+        font-size: clamp(26px, 2.8vw, 40px);
+        line-height: 1.16;
+        min-height: 1.16em;
+        overflow-wrap: anywhere;
+    }
+    .selection-stage .selection-slide h3::after {
+        flex-shrink: 0;
+    }
+    .selection-stage .selection-slide p {
+        line-height: 1.8;
+        max-width: 36em;
+    }
+    .product-hero .product-intro {
+        min-width: 0;
+    }
+    .product-hero .product-intro h1 {
+        overflow-wrap: anywhere;
+        text-wrap: balance;
+    }
+    .product-hero .product-intro > p {
+        max-width: 36em;
+    }
+    .product-hero .product-visual {
+        min-width: 0;
+    }
+    .product-hero .product-visual > img {
+        width: 100%;
+        object-fit: contain;
+    }
+    @media (min-width: 701px) and (max-width: 1000px) {
+        .editorial-home .opening-heading h1 {
+            font-size: clamp(58px, 8.4vw, 84px);
+        }
+        .selection-stage .editorial-heading {
+            align-items: start;
+        }
+        .selection-stage .selection-aside {
+            max-width: 230px;
+        }
+        .product-hero {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+            gap: 24px;
+            padding-inline: 6%;
+        }
+        .product-hero .product-intro {
+            padding-right: 0;
+        }
+        .product-hero .product-intro h1 {
+            font-size: clamp(42px, 6vw, 60px);
+        }
+        .product-hero .product-intro h2 {
+            font-size: 34px;
+        }
+    }
+    @media (max-width: 700px) {
+        .cinema-film {
+            width: 100%;
+        }
+        .cinema-copy {
+            top: 43%;
+        }
+        .cinema-bottom {
+            left: 6%;
+            right: 6%;
+            gap: 18px;
+        }
+        .cinema-controls {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            width: 100%;
+            gap: 6px;
+        }
+        .cinema-controls button,
+        .cinema-controls a {
+            padding: 10px 8px;
+            font-size: 9px;
+            letter-spacing: 0.02em;
+        }
+        .cinema-status {
+            left: 6%;
+            right: auto;
+            top: 94px;
+            font-size: 8px;
+        }
+        .editorial-home .opening-heading {
+            left: 6%;
+            right: 6%;
+            top: 13%;
+            max-width: none;
+        }
+        .editorial-home .opening-heading h1 {
+            font-size: clamp(50px, 12.5vw, 78px);
+            line-height: 1;
+            margin: 18px 0;
+        }
+        .editorial-home .opening-heading p {
+            max-width: none;
+            font-size: 10px;
+        }
+        .opening-scroll {
+            top: 43%;
+            height: 57%;
+            width: 100%;
+        }
+        .opening-scroll .opening-caption {
+            left: 6%;
+            right: 6%;
+            bottom: 10%;
+        }
+        .opening-scroll .opening-caption h2 {
+            font-size: 30px;
+        }
+        .selection-stage .editorial-heading {
+            display: block;
+        }
+        .selection-stage .editorial-heading h2 {
+            font-size: clamp(42px, 11vw, 58px);
+            line-height: 1;
+        }
+        .selection-stage .selection-aside {
+            margin-top: 18px;
+            padding-bottom: 0;
+        }
+        .selection-stage .selection-scroll .selection-slide h3 {
+            font-size: clamp(25px, 6.5vw, 32px);
+        }
+        .selection-stage .selection-meta {
+            gap: 8px;
+        }
+        .selection-stage .selection-meta small {
+            font-size: 7px;
+        }
+        .selection-stage .selection-slide p {
+            font-size: 11px;
+        }
+    }
+    @media (max-height: 500px) and (min-width: 701px) {
+        .cinema-status {
+            top: 90px;
+        }
+        .cinema-bottom {
+            bottom: 15px;
+        }
+        .cinema-explore span {
+            width: 34px;
+            height: 34px;
+        }
+    }
+}
