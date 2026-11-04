@@ -10,8 +10,8 @@
     align-items: center;
     background: #1b1e1b;
     color: #d2c3aa;
-    font: 10px var(--sans, sans-serif);
-    letter-spacing: 0.24em;
+    font: 600 clamp(18px, 2vw, 26px) var(--sans, sans-serif);
+    letter-spacing: 0.04em;
     pointer-events: auto;
     visibility: hidden;
 }
@@ -21,7 +21,7 @@
 }
 .page-leaving::after,
 .page-arriving::after {
-    content: "MARSHALL / AN EDIT OF SOUND";
+    content: "MARSHALL / 사운드의 기록";
     position: fixed;
     inset: 0;
     z-index: 200;
@@ -30,8 +30,8 @@
     align-items: center;
     background: #1b1e1b;
     color: #d2c3aa;
-    font: 10px var(--sans, sans-serif);
-    letter-spacing: 0.24em;
+    font: 600 clamp(18px, 2vw, 26px) var(--sans, sans-serif);
+    letter-spacing: 0.04em;
     pointer-events: auto;
     opacity: 1;
 }
@@ -68,7 +68,7 @@
 
 /* Keep the covered frame continuous while the home document loads. */
 html.logo-home-pending::after {
-    content: "MARSHALL / AN EDIT OF SOUND";
+    content: "MARSHALL / 사운드의 기록";
     position: fixed;
     inset: 0;
     z-index: 200;
@@ -77,8 +77,8 @@ html.logo-home-pending::after {
     justify-content: center;
     background: #1b1e1b;
     color: #d2c3aa;
-    font: 10px var(--sans, sans-serif);
-    letter-spacing: 0.24em;
+    font: 600 clamp(18px, 2vw, 26px) var(--sans, sans-serif);
+    letter-spacing: 0.04em;
 }
 .page-leaving::after { animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
 @media (prefers-reduced-motion: reduce) {

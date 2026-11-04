@@ -507,7 +507,7 @@
     const pageCurtain = gs ? document.createElement("div") : null;
     if (pageCurtain) {
         pageCurtain.className = "page-curtain";
-        pageCurtain.textContent = "MARSHALL / AN EDIT OF SOUND";
+        pageCurtain.textContent = "MARSHALL / 사운드의 기록";
         pageCurtain.setAttribute("aria-hidden", "true");
         document.body.append(pageCurtain);
         document.body.classList.add("has-gsap-transition");

@@ -1,5 +1,22 @@
 (() => {
     "use strict";
+    const stage = document.querySelector(".selection-stage");
+    const selectionScroll = stage?.querySelector(".selection-scroll");
+    const selectionImage = selectionScroll?.querySelector(".selection-image");
+    if (stage && selectionScroll && selectionImage) {
+        const alignSelectionArrows = () => {
+            const image = selectionImage.getBoundingClientRect();
+            const scroll = selectionScroll.getBoundingClientRect();
+            stage.style.setProperty("--selection-arrow-top", `${image.top - scroll.top + image.height / 2}px`);
+        };
+        alignSelectionArrows();
+        addEventListener("resize", alignSelectionArrows);
+        if ("ResizeObserver" in window) {
+            const observer = new ResizeObserver(alignSelectionArrows);
+            observer.observe(selectionImage);
+            observer.observe(selectionScroll);
+        }
+    }
     const key = "marshall-reading-history-v1";
     let history = [];
     try { history = JSON.parse(localStorage.getItem(key) || "[]"); } catch {}
@@ -54,8 +71,56 @@
             a.append(make("strong", item.name));
             list.append(a);
         });
-        section.append(list);
+        let startX = 0, startScroll = 0, dragging = false, moved = false;
+        list.addEventListener("pointerdown", event => {
+            if (event.pointerType !== "mouse" || event.button !== 0) return;
+            dragging = true;
+            moved = false;
+            startX = event.clientX;
+            startScroll = list.scrollLeft;
+        });
+        window.addEventListener("pointermove", event => {
+            if (!dragging) return;
+            const distance = event.clientX - startX;
+            if (Math.abs(distance) > 5) {
+                moved = true;
+                list.classList.add("is-dragging");
+                list.scrollLeft = startScroll - distance;
+            }
+        });
+        window.addEventListener("pointerup", () => {
+            dragging = false;
+            list.classList.remove("is-dragging");
+        });
+        list.addEventListener("click", event => {
+            if (moved) { event.preventDefault(); moved = false; }
+        }, true);
+        list.addEventListener("dragstart", event => event.preventDefault());
+        const carousel = make("div", "", "recent-products-carousel");
+        const previous = make("button", "", "recent-products-arrow");
+        const next = make("button", "", "recent-products-arrow");
+        previous.type = next.type = "button";
+        previous.setAttribute("aria-label", "이전 최근 본 제품");
+        next.setAttribute("aria-label", "다음 최근 본 제품");
+        previous.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+        next.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+        const updateArrows = () => {
+            previous.disabled = list.scrollLeft <= 1;
+            next.disabled = list.scrollLeft >= list.scrollWidth - list.clientWidth - 1;
+        };
+        const move = direction => {
+            const card = list.querySelector(".recent-product");
+            const gap = parseFloat(getComputedStyle(list).columnGap) || 0;
+            list.scrollBy({ left: direction * ((card?.getBoundingClientRect().width || list.clientWidth) + gap), behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+        };
+        previous.addEventListener("click", () => move(-1));
+        next.addEventListener("click", () => move(1));
+        list.addEventListener("scroll", updateArrows, { passive: true });
+        addEventListener("resize", updateArrows);
+        carousel.append(previous, list, next);
+        section.append(carousel);
         document.querySelector("main")?.append(section);
+        updateArrows();
     }
 })();
 
