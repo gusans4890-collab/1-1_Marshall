@@ -1,1 +1,6 @@
 .qa/
+
+# Local browser profiles and generated handoff archives
+.DS_Store
+figma-handoff/export-profile/
+figma-handoff/*.zip

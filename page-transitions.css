@@ -65,3 +65,22 @@
         animation: none;
     }
 }
+
+/* Keep the covered frame continuous while the home document loads. */
+html.logo-home-pending::after {
+    content: "MARSHALL / AN EDIT OF SOUND";
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1b1e1b;
+    color: #d2c3aa;
+    font: 10px var(--sans, sans-serif);
+    letter-spacing: 0.24em;
+}
+.page-leaving::after { animation-duration: 0.8s; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+@media (prefers-reduced-motion: reduce) {
+    html.logo-home-pending::after { display: none; }
+}
